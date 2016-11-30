@@ -9,10 +9,12 @@ import com.scut.itpm.umo.R;
 import com.scut.itpm.umo.core.Main.Nav.NavBarController;
 import com.scut.itpm.umo.core.Main.Nav.NavBarView;
 import com.scut.itpm.umo.core.announce.AnnounceFragment;
+import com.scut.itpm.umo.core.announce.AnnouncePresenter;
 import com.scut.itpm.umo.core.contact.ContactFragment;
 import com.scut.itpm.umo.core.follow.FollowFragment;
 import com.scut.itpm.umo.core.inform.InformFragment;
 import com.scut.itpm.umo.core.message.MessageFragment;
+import com.scut.itpm.umo.util.RepositoryUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,16 +37,14 @@ public class MainActivity extends BaseActivity implements MainControllerListener
     private InformFragment informFragment;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainView=(MainView) findViewById(R.id.activity_main);
+        mainView = (MainView) findViewById(R.id.activity_main);
         navBarView = (NavBarView) findViewById(R.id.id_main_nav_bar);
-        viewPager=(ViewPager) findViewById(R.id.id_main_view_pager);
-
+        viewPager = (ViewPager) findViewById(R.id.id_main_view_pager);
 
 
         initFragment();
@@ -55,7 +55,8 @@ public class MainActivity extends BaseActivity implements MainControllerListener
 
 
     }
-    private void initFragment(){
+
+    private void initFragment() {
         messageFragment = MessageFragment.newInstance();
         contactFragment = ContactFragment.newInstance();
         announceFragment = AnnounceFragment.newInstance();
@@ -69,19 +70,21 @@ public class MainActivity extends BaseActivity implements MainControllerListener
         fragments.add(informFragment);
 
     }
-    private void initViewPager(){
+
+    private void initViewPager() {
         MainFragmentAdapter adapter = new MainFragmentAdapter(getSupportFragmentManager(), fragments);
         viewPager.setAdapter(adapter);
     }
 
 
-
     private void initController() {
-
-        NavBarController navBarController = new NavBarController( navBarView);
-
-        mainController=new MainController(mainView, navBarController);
+        //这是主界面导航的控制器
+        NavBarController navBarController = new NavBarController(navBarView);
+        mainController = new MainController(mainView, navBarController);
         mainView.setListener(mainController);
+
+        //TODO 此处初始化Presenter，并绑定View和Repository（本地和远程数据源由Repository统一管理）
+        new AnnouncePresenter(announceFragment, RepositoryUtil.getAnnounceRepository(this));
 
     }
 }
