@@ -5,5 +5,5 @@ package com.scut.itpm.umo;
  */
 
 public interface BaseView<T> {
-     void setPresenter(T presenter);
+    public void setPresenter(T presenter);
 }

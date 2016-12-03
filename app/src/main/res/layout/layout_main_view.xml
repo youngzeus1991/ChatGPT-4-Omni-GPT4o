@@ -1,64 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-
-
-    <RadioGroup
-        android:id="@+id/id_main_radiogroup_tab_bar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tab_bar_hight"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:divider="@drawable/block_line"
-        android:showDividers="middle">
+        android:layout_height="match_parent">
 
-        <RadioButton
-            android:id="@+id/id_main_radio_message"
-            style="@style/radio_button_same_attr"
-            android:text="@string/message"
+        <com.scut.itpm.umo.core.Main.Nav.NavBarView
+            android:id="@+id/id_main_nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-          />
+        </com.scut.itpm.umo.core.Main.Nav.NavBarView>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/id_main_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_main_nav_bar">
+
+        </android.support.v4.view.ViewPager>
+
+        <RadioGroup
+            android:id="@+id/id_main_radiogroup_tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_bar_hight"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/id_main_radio_message"
+                style="@style/radio_button_same_attr"
+                android:text="@string/message" />
+
+            <RadioButton
+                android:id="@+id/id_main_radio_contract"
+                style="@style/radio_button_same_attr"
+                android:text="@string/contact" />
+
+            <RadioButton
+                android:id="@+id/id_main_radio_announce"
+                style="@style/radio_button_same_attr"
+                android:text="@string/announce" />
+
+            <RadioButton
+                android:id="@+id/id_main_radio_follow"
+                style="@style/radio_button_same_attr"
+                android:text="@string/follow" />
+
+            <RadioButton
+                android:id="@+id/id_main_radio_inform"
+                style="@style/radio_button_same_attr"
+                android:text="@string/inform" />
 
 
-        <RadioButton
-            android:id="@+id/id_main_radio_contract"
-            style="@style/radio_button_same_attr"
-            android:text="@string/contract"/>
+        </RadioGroup>
 
-        <RadioButton
-            android:id="@+id/id_main_radio_announce"
-            style="@style/radio_button_same_attr"
-            android:text="@string/announce" />
-
-        <RadioButton
-            android:id="@+id/id_main_radio_follow"
-            style="@style/radio_button_same_attr"
-            android:text="@string/follow" />
-
-        <RadioButton
-            android:id="@+id/id_main_radio_inform"
-            style="@style/radio_button_same_attr"
-            android:text="@string/inform" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_above="@id/id_main_radiogroup_tab_bar"
+            android:background="@android:color/black" />
+    </RelativeLayout>
 
 
-    </RadioGroup>
-
-    <View
-        android:id="@+id/id_main_view_line"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_above="@id/id_main_radiogroup_tab_bar"
-        android:background="@android:color/black" />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/id_main_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/id_main_view_line">
-    </android.support.v4.view.ViewPager>
-
-</RelativeLayout>
+</FrameLayout>

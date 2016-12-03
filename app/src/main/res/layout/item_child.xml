@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <RelativeLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/child_avatar"
+            android:layout_alignParentLeft="true"
+            android:scaleType="centerInside"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/avatar_1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/child_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:paddingRight="10dp"
+            android:paddingTop="4dp"
+            android:layout_marginTop="10dp"
+            android:text="姓名"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/child_sign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/child_name"
+            android:paddingLeft="4dp"
+            android:paddingRight="10dp"
+            android:text="签名"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>
