@@ -1,4 +1,4 @@
-package com.scut.itpm.umo.core.Main;
+package com.scut.itpm.umo.core.Main.Main;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
@@ -24,8 +24,9 @@ public class MainView extends FrameLayout implements MainContract.View {
     private static final int PAGE_FOLLOW = 3;
     private static final int PAGE_INFORM = 4;
 
-    private ViewPager viewPager;
+    private MainContract.Presenter mainViewPresenter;
 
+    private ViewPager viewPager;
     private RadioGroup radioGroup;
 
     private RadioButton messageTab;
@@ -39,7 +40,7 @@ public class MainView extends FrameLayout implements MainContract.View {
 
         viewPager = (ViewPager) view.findViewById(R.id.id_main_view_pager);
 
-        radioGroup = (RadioGroup) view.findViewById(R.id.id_main_radiogroup_tab_bar);
+        radioGroup = (RadioGroup) view.findViewById(R.id.id_main_radio_group_tab_bar);
 
         messageTab = (RadioButton) view.findViewById(R.id.id_main_radio_message);
         contactTab = (RadioButton) view.findViewById(R.id.id_main_radio_contract);
@@ -63,16 +64,14 @@ public class MainView extends FrameLayout implements MainContract.View {
         initView(context);
     }
 
-    public void setListener(MainController listener) {
+    public void setListener(MainPresenter listener) {
         radioGroup.setOnCheckedChangeListener(listener);
         viewPager.addOnPageChangeListener(listener);
-
-
     }
 
     @Override
-    public void setNavBarTitle(String titleToBe) {
-
+    public void informNavBarChangeTitle() {
+        mainViewPresenter.informNavBarChangeTitle(getCurrTitle());
     }
 
     @Override
@@ -94,7 +93,7 @@ public class MainView extends FrameLayout implements MainContract.View {
                 viewPager.setCurrentItem(PAGE_INFORM);
                 break;
         }
-
+        informNavBarChangeTitle();
 
     }
 
@@ -119,18 +118,19 @@ public class MainView extends FrameLayout implements MainContract.View {
                     break;
             }
         }
+        informNavBarChangeTitle();
     }
 
     @Override
-    public String getCurrTitle(int i) {
-        RadioButton radioButton=(RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
+    public String getCurrTitle() {
+        RadioButton radioButton = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
 //        RadioButton radioButton=(RadioButton)radioGroup.getChildAt(i);
         return radioButton.getText().toString();
     }
 
     @Override
     public void setPresenter(Object presenter) {
-
+        this.mainViewPresenter = (MainContract.Presenter) presenter;
     }
 
     @Override

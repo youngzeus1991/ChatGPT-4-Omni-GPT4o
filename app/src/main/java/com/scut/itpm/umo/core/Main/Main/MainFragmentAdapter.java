@@ -1,4 +1,4 @@
-package com.scut.itpm.umo.core.Main;
+package com.scut.itpm.umo.core.Main.Main;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

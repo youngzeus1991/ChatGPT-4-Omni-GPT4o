@@ -1,27 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="30dp"
+    android:layout_height="match_parent"
+    android:background="@color/color_nav_bar_background"
     android:orientation="horizontal">
 
     <Button
         android:id="@+id/id_nav_bar_setting"
-        android:layout_width="30dp"
+        android:layout_width="20dp"
         android:layout_height="30dp"
         android:layout_alignParentLeft="true"
-        android:background="@mipmap/ic_launcher" />
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/marin_edge"
+        android:background="@drawable/nav_bar_menu"
+        />
 
     <TextView
         android:id="@+id/id_nav_bar_title"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="100dp"
+        android:layout_height="@dimen/widget_size_in_nav_bar"
+        android:gravity="center"
         android:layout_centerInParent="true"
+        android:background="@color/color_nav_bar_title_background"
         android:text="标题" />
+    <LinearLayout
+        android:id="@+id/id_nav_bar_announce_title"
+        android:visibility="invisible"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/widget_size_in_nav_bar"
+        android:layout_centerInParent="true"
+        android:background="@drawable/shape_nav_bar_title"
+        android:divider="@drawable/block_line"
+        android:showDividers="middle">
+        <TextView
+            android:id="@+id/id_nav_bar_map"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:text="地图"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/id_nav_bar_sociaty"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:text="社区"
+            android:gravity="center"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/id_nav_bar_search"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_alignParentRight="true"
-        android:background="@drawable/search" />
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/marin_edge"
+        android:background="@drawable/nav_bar_search" />
 </RelativeLayout>

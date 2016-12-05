@@ -6,25 +6,35 @@ import android.support.v4.view.ViewPager;
 
 import com.scut.itpm.umo.BaseActivity;
 import com.scut.itpm.umo.R;
-import com.scut.itpm.umo.core.Main.Nav.NavBarController;
-import com.scut.itpm.umo.core.Main.Nav.NavBarView;
+import com.scut.itpm.umo.core.Main.Main.MainContract;
+import com.scut.itpm.umo.core.Main.Main.MainFragmentAdapter;
+import com.scut.itpm.umo.core.Main.Main.MainPresenter;
+import com.scut.itpm.umo.core.Main.Main.MainView;
+import com.scut.itpm.umo.core.Main.NavBar.NavBarContract;
+import com.scut.itpm.umo.core.Main.NavBar.NavBarPresenter;
+import com.scut.itpm.umo.core.Main.NavBar.NavBarView;
+import com.scut.itpm.umo.core.announce.AnnounceContract;
 import com.scut.itpm.umo.core.announce.AnnounceFragment;
+import com.scut.itpm.umo.core.announce.AnnouncePresenter;
 import com.scut.itpm.umo.core.contact.ContactFragment;
 import com.scut.itpm.umo.core.follow.FollowFragment;
 import com.scut.itpm.umo.core.inform.InformFragment;
 import com.scut.itpm.umo.core.message.MessageFragment;
+import com.scut.itpm.umo.util.RepositoryUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements MainControllerListener {
+public class MainActivity extends BaseActivity {
 
 
     private MainView mainView;
     private NavBarView navBarView;
     private ViewPager viewPager;
 
-    private MainController mainController;
+    private MainContract.Presenter mainPresenter;
+    private NavBarContract.Presenter navBarPresenter;
+    private AnnounceContract.Presenter announcePresenter;
 
     private List<Fragment> fragments = new ArrayList<>();
 
@@ -35,27 +45,26 @@ public class MainActivity extends BaseActivity implements MainControllerListener
     private InformFragment informFragment;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainView=(MainView) findViewById(R.id.activity_main);
+        mainView = (MainView) findViewById(R.id.id_main_main);
         navBarView = (NavBarView) findViewById(R.id.id_main_nav_bar);
-        viewPager=(ViewPager) findViewById(R.id.id_main_view_pager);
-
-
+        viewPager = (ViewPager) mainView.findViewById(R.id.id_main_view_pager);
 
         initFragment();
         initViewPager();
-        initController();
+        initPresenter();
+        initListener();
 
-        mainController.start();
-
+        mainPresenter.start();
 
     }
-    private void initFragment(){
+
+
+    private void initFragment() {
         messageFragment = MessageFragment.newInstance();
         contactFragment = ContactFragment.newInstance();
         announceFragment = AnnounceFragment.newInstance();
@@ -69,19 +78,44 @@ public class MainActivity extends BaseActivity implements MainControllerListener
         fragments.add(informFragment);
 
     }
-    private void initViewPager(){
+
+    private void initViewPager() {
         MainFragmentAdapter adapter = new MainFragmentAdapter(getSupportFragmentManager(), fragments);
         viewPager.setAdapter(adapter);
     }
 
+    private void initPresenter() {
 
+        navBarPresenter = new NavBarPresenter(navBarView, new Connector.CallbackOnNavBar() {
 
-    private void initController() {
+            @Override
+            public void mapFragmentShouldShow() {
+                announcePresenter.informMapFragmentShouldShow();
+            }
 
-        NavBarController navBarController = new NavBarController( navBarView);
+            @Override
+            public void feelingFragmentShouldShow() {
+                announcePresenter.informFeelingFragmentShouldShow();
+            }
 
-        mainController=new MainController(mainView, navBarController);
-        mainView.setListener(mainController);
+            @Override
+            public void requirementFragmentShouldShow() {
+                announcePresenter.informRequirementFragmentShouldShow();
+            }
+        });
+        mainPresenter = new MainPresenter(mainView, new Connector.CallbackOnMainView() {
+            @Override
+            public void navBarTitleShouldChange(String titleToBe) {
+                navBarPresenter.setCurrentTitle(titleToBe);
+            }
+        });
 
+        //TODO 此处初始化Presenter，并绑定View和Repository（本地和远程数据源由Repository统一管理）
+        announcePresenter = new AnnouncePresenter(announceFragment, RepositoryUtil.getAnnounceRepository(this));
+
+    }
+
+    private void initListener() {
+        mainView.setListener((MainPresenter) mainPresenter);
     }
 }
