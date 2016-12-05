@@ -29,31 +29,67 @@ public class AnnounceRepository implements AnnounceDataSource {
 
 
     @Override
-    public void getAnnounceList(final GetAnnounceListCallback callback) {
-        //TODO 无网络情况下的调取本地数据
-        announceLocalDataSource.getAnnounceList(callback);
+    public void getFeelingList(final GetFeelingListCallback callback) {
+/*        //TODO 无网络情况下的调取本地数据
+        announceLocalDataSource.getFeelingList(callback);*/
 
         //TODO 一种本地获取失败后调取网络数据的方式
-        announceLocalDataSource.getAnnounceList(new GetAnnounceListCallback() {
+        announceLocalDataSource.getFeelingList(new GetFeelingListCallback() {
             @Override
-            public void didGetAnnounceList(List<AnnounceModel> announceModelList) {
-                callback.didGetAnnounceList(announceModelList);
+            public void didGetFeelingList(List<FeelingModel> feelingModelList) {
+                callback.didGetFeelingList(feelingModelList);
             }
 
             @Override
-            public void announceListNotAvailable() {
-                announceRemoteDataSource.getAnnounceList(new GetAnnounceListCallback() {
+            public void feelingListNotAvailable() {
+                announceRemoteDataSource.getFeelingList(new GetFeelingListCallback() {
                     @Override
-                    public void didGetAnnounceList(List<AnnounceModel> announceModelList) {
-                        callback.didGetAnnounceList(announceModelList);
+                    public void didGetFeelingList(List<FeelingModel> feelingModelList) {
+                        callback.didGetFeelingList(feelingModelList);
                     }
 
                     @Override
-                    public void announceListNotAvailable() {
-                        callback.announceListNotAvailable();
+                    public void feelingListNotAvailable() {
+                        callback.feelingListNotAvailable();
                     }
                 });
             }
         });
+    }
+
+
+    @Override
+    public void getRequirementList(final GetRequirementListCallback callback) {
+        announceLocalDataSource.getRequirementList(new GetRequirementListCallback() {
+            @Override
+            public void didGetRequirementList(List<RequirementModel> requirementModelList) {
+                callback.didGetRequirementList(requirementModelList);
+            }
+
+            @Override
+            public void requirementListNotAvailable() {
+                announceRemoteDataSource.getRequirementList(new GetRequirementListCallback() {
+                    @Override
+                    public void didGetRequirementList(List<RequirementModel> requirementModelList) {
+                        callback.didGetRequirementList(requirementModelList);
+                    }
+
+                    @Override
+                    public void requirementListNotAvailable() {
+                        callback.requirementListNotAvailable();
+                    }
+                });
+            }
+        });
+    }
+
+    @Override
+    public void getFeelingDetail(int ID, GetFeelingDetailCallback callback) {
+
+    }
+
+    @Override
+    public void getRequirementDetail(int ID, GetRequirementDetailCallback callback) {
+
     }
 }

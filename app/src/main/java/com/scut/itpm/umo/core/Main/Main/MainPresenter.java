@@ -1,34 +1,33 @@
-package com.scut.itpm.umo.core.Main;
+package com.scut.itpm.umo.core.Main.Main;
 
 import android.support.v4.view.ViewPager;
 import android.widget.RadioGroup;
 
-import com.scut.itpm.umo.core.Main.Nav.NavBarContract;
+import com.scut.itpm.umo.core.Main.Connector;
 
 /**
  * Created by DELL on 2016/11/2.
  */
 
-public class MainController implements MainContract.Controller, RadioGroup.OnCheckedChangeListener,ViewPager.OnPageChangeListener{
+public class MainPresenter implements MainContract.Presenter, RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
 
     private MainContract.View mainView;
-    private NavBarContract.Controller navBarController;
-    public MainController(MainContract.View view, NavBarContract.Controller navBarController) {
-        this.mainView=view;
-        this.navBarController=navBarController;
+    private Connector.CallbackOnMainView callbackOnMainView;
+
+    public MainPresenter(MainContract.View view, Connector.CallbackOnMainView callback) {
+        this.mainView = view;
+        this.callbackOnMainView = callback;
+        mainView.setPresenter(this);
     }
 
     @Override
-    public void setNavBarTitle(String titleToBe) {
-        navBarController.setCurrentTitle(titleToBe);
-
+    public void informNavBarChangeTitle(String titleToBe) {
+        callbackOnMainView.navBarTitleShouldChange(titleToBe);
     }
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         mainView.onCheckChange(i);
-        String titleToBe=mainView.getCurrTitle(i);
-        navBarController.setCurrentTitle(titleToBe);
     }
 
     @Override
@@ -53,6 +52,6 @@ public class MainController implements MainContract.Controller, RadioGroup.OnChe
     public void start() {
 
         mainView.init();
-        navBarController.start();
+
     }
 }

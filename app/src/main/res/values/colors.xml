@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_tab_select">#02b7ff</color>
+    <color name="color_nav_bar_background">#34ccff</color>
+    <color name="color_nav_bar_title_background">#ffffff</color>
+    <color name="color_nav_bar_title">#000000</color>
+    <color name="color_nav_bar_title_block_line">#cccccc</color>
+
 </resources>

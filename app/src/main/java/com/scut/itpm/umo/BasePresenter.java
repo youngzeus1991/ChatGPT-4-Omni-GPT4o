@@ -5,4 +5,5 @@ package com.scut.itpm.umo;
  */
 
 public interface BasePresenter {
+    void start();
 }

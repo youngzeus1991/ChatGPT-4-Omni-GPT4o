@@ -4,7 +4,8 @@ import android.content.Context;
 
 import com.scut.itpm.umo.data.FakeDataProvider;
 import com.scut.itpm.umo.data.announce.AnnounceDataSource;
-import com.scut.itpm.umo.data.announce.AnnounceModel;
+import com.scut.itpm.umo.data.announce.FeelingModel;
+import com.scut.itpm.umo.data.announce.RequirementModel;
 import com.scut.itpm.umo.util.Constant;
 
 import java.util.ArrayList;
@@ -31,22 +32,51 @@ public class AnnounceLocalDataSource implements AnnounceDataSource {
 
 
     @Override
-    public void getAnnounceList(GetAnnounceListCallback callback) {
+    public void getFeelingList(GetFeelingListCallback callback) {
             //TODO 这里进行假数据或者数据库读取
-        List<AnnounceModel> announceModelList=new ArrayList<>();
+        List<FeelingModel> feelingModelList =new ArrayList<>();
 
         if(Constant.isFakeDataDebug){
-            announceModelList= FakeDataProvider.getAnnounceList();
+            feelingModelList = FakeDataProvider.getFeelingList();
         }
         else{
             //TODO 进行数据库读取
         }
 
-        if(announceModelList!=null&&announceModelList.size()>0){
-            callback.didGetAnnounceList(announceModelList);
+        if(feelingModelList !=null&& feelingModelList.size()>0){
+            callback.didGetFeelingList(feelingModelList);
         }
         else{
-            callback.announceListNotAvailable();
+            callback.feelingListNotAvailable();
         }
+    }
+
+    @Override
+    public void getRequirementList(GetRequirementListCallback callback) {
+        List<RequirementModel> requirementModelList =new ArrayList<>();
+
+        if(Constant.isFakeDataDebug){
+            requirementModelList = FakeDataProvider.getRequirementList();
+        }
+        else{
+            // 进行数据库读取
+        }
+
+        if(requirementModelList !=null&& requirementModelList.size()>0){
+            callback.didGetRequirementList(requirementModelList);
+        }
+        else{
+            callback.requirementListNotAvailable();
+        }
+    }
+
+    @Override
+    public void getFeelingDetail(int ID, GetFeelingDetailCallback callback) {
+
+    }
+
+    @Override
+    public void getRequirementDetail(int ID, GetRequirementDetailCallback callback) {
+
     }
 }
