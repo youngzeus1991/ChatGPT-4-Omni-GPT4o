@@ -8,13 +8,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".core.Main.MainActivity">
+        <activity android:name=".core.signinActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".chat.ChatActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".core.signupActivity" />
+        <activity android:name=".core.Main.MainActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

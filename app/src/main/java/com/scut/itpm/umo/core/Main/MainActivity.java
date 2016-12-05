@@ -20,6 +20,7 @@ import com.scut.itpm.umo.core.contact.ContactFragment;
 import com.scut.itpm.umo.core.follow.FollowFragment;
 import com.scut.itpm.umo.core.inform.InformFragment;
 import com.scut.itpm.umo.core.message.MessageFragment;
+import com.scut.itpm.umo.core.message.MessagePresenter;
 import com.scut.itpm.umo.util.RepositoryUtil;
 
 import java.util.ArrayList;
@@ -44,6 +45,9 @@ public class MainActivity extends BaseActivity {
     private FollowFragment followFragment;
     private InformFragment informFragment;
 
+    //耀友增加
+    private MessagePresenter mesPresenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +69,7 @@ public class MainActivity extends BaseActivity {
 
 
     private void initFragment() {
-        messageFragment = MessageFragment.newInstance();
+        messageFragment = MessageFragment.newInstance(this);
         contactFragment = ContactFragment.newInstance();
         announceFragment = AnnounceFragment.newInstance();
         followFragment = FollowFragment.newInstance();
@@ -112,6 +116,8 @@ public class MainActivity extends BaseActivity {
 
         //TODO 此处初始化Presenter，并绑定View和Repository（本地和远程数据源由Repository统一管理）
         announcePresenter = new AnnouncePresenter(announceFragment, RepositoryUtil.getAnnounceRepository(this));
+        new AnnouncePresenter(announceFragment, RepositoryUtil.getAnnounceRepository(this));
+        mesPresenter = new MessagePresenter(messageFragment,RepositoryUtil.getMessageRepository(this));
 
     }
 
