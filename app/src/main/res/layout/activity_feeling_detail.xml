@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/id_item_feeling_detail_LL"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+<com.scut.itpm.umo.core.Main.NavBar.NavBarView
+    android:id="@+id/id_feeling_detail_nav_bar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_bar_height">
+</com.scut.itpm.umo.core.Main.NavBar.NavBarView>
+    <RelativeLayout
+        android:id="@+id/id_feeling_detail_info_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/id_feeling_detail_feelinger_photo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/search" />
+
+        <TextView
+            android:id="@+id/id_feeling_detail_feelinger_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/id_feeling_detail_feelinger_photo"
+            android:text="userName" />
+
+        <TextView
+            android:id="@+id/id_feeling_detail_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_feeling_detail_feelinger_name"
+            android:layout_toRightOf="@id/id_feeling_detail_feelinger_photo"
+            android:gravity="bottom"
+            android:layout_alignBottom="@id/id_feeling_detail_feelinger_photo"
+            android:text="userLocation" />
+
+        <TextView
+            android:id="@+id/id_feeling_detail_moment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="feeling_detailMoment"
+            android:layout_below="@id/id_feeling_detail_feelinger_name"
+
+            android:layout_alignParentRight="true"
+            android:gravity="bottom"
+            android:layout_alignBottom="@id/id_feeling_detail_feelinger_photo"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/id_feeling_detail_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="feeling_detailContent"/>
+    <GridView
+        android:id="@+id/id_feeling_detail_photo_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></GridView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/action_commend"/>
+        <TextView
+            android:id="@+id/id_feeling_detail_comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="commentCount"
+            android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/action_comment"/>
+        <TextView
+            android:id="@+id/id_feeling_detail_commend_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="commendCount"
+            android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/action_view"/>
+        <TextView
+            android:id="@+id/id_feeling_detail_view_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="commentCount"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/id_feeling_detail_comment_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="赞"/>
+        <Button
+            android:id="@+id/id_feeling_detail_share_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="分享"/>
+        <Button
+            android:id="@+id/id_feeling_detail_commend_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="评论"/>
+
+    </LinearLayout>
+</LinearLayout>

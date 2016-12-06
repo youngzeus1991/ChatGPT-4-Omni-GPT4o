@@ -23,7 +23,22 @@ public class AnnounceRemoteDataSource implements AnnounceDataSource{
 
 
     @Override
-    public void getAnnounceList(GetAnnounceListCallback callback) {
+    public void getFeelingList(GetFeelingListCallback callback) {
+
+    }
+
+    @Override
+    public void getRequirementList(GetRequirementListCallback callback) {
+
+    }
+
+    @Override
+    public void getFeelingDetail(int ID, GetFeelingDetailCallback callback) {
+
+    }
+
+    @Override
+    public void getRequirementDetail(int ID, GetRequirementDetailCallback callback) {
 
     }
 }

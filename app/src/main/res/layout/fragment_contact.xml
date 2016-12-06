@@ -7,4 +7,14 @@
         android:layout_height="wrap_content"
         android:text="Hello,Contact!"
         android:layout_gravity="center_horizontal|center_vertical"/>
+
+    <ExpandableListView
+        android:id="@+id/contact_listview"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:divider="@null"
+        android:dividerHeight="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ExpandableListView>
 </LinearLayout>
