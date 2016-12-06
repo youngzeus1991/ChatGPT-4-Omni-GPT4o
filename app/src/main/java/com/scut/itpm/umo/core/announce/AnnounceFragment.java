@@ -26,6 +26,9 @@ import com.scut.itpm.umo.util.RepositoryUtil;
 public class AnnounceFragment extends Fragment implements AnnounceContract.View {
     private boolean isFirstLoad;
     private AnnounceContract.Presenter announcePresenter;
+//<<<<<<< HEAD
+//    public static AnnounceFragment newInstance(){
+//=======
     private  MapFragment mapFragment;
     private  FeelingFragment feelingFragment;
     private  RequirementFragment requirementFragment;
@@ -36,6 +39,7 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
     }
 
     public static AnnounceFragment newInstance() {
+
         return new AnnounceFragment();
     }
 

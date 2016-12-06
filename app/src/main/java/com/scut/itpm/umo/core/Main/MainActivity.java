@@ -19,6 +19,7 @@ import com.scut.itpm.umo.core.announce.AnnouncePresenter;
 import com.scut.itpm.umo.core.contact.ContactFragment;
 import com.scut.itpm.umo.core.follow.FollowFragment;
 import com.scut.itpm.umo.core.inform.InformFragment;
+import com.scut.itpm.umo.core.inform.InformPresenter;
 import com.scut.itpm.umo.core.message.MessageFragment;
 import com.scut.itpm.umo.core.message.MessagePresenter;
 import com.scut.itpm.umo.util.RepositoryUtil;
@@ -117,9 +118,13 @@ public class MainActivity extends BaseActivity {
         //TODO 此处初始化Presenter，并绑定View和Repository（本地和远程数据源由Repository统一管理）
         announcePresenter = new AnnouncePresenter(announceFragment, RepositoryUtil.getAnnounceRepository(this));
         new AnnouncePresenter(announceFragment, RepositoryUtil.getAnnounceRepository(this));
+
+        new InformPresenter(informFragment,RepositoryUtil.getInformRepository(this));
+
         mesPresenter = new MessagePresenter(messageFragment,RepositoryUtil.getMessageRepository(this));
 
     }
+
 
     private void initListener() {
         mainView.setListener((MainPresenter) mainPresenter);
