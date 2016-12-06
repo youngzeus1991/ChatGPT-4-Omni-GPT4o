@@ -87,15 +87,22 @@ public class FeelingListAdapter implements ListAdapter {
         TextView feelingViewCountTextView=(TextView)feelingView.findViewById(R.id.id_feeling_view_count);
         GridView feelingPhotoList=(GridView)feelingView.findViewById(R.id.id_feeling_photo_list);
 
+
         Button commentButton=(Button)feelingView.findViewById(R.id.id_feeling_comment_button);
         Button commendButton=(Button)feelingView.findViewById(R.id.id_feeling_commend_button);
         Button shareButton=(Button)feelingView.findViewById(R.id.id_feeling_share_button);
 
-
-
+        feelingerPhotoImageView.setOnClickListener(listener);
+        feelingerNameTextView.setOnClickListener(listener);
         commentButton.setOnClickListener(listener);
         commendButton.setOnClickListener(listener);
         shareButton.setOnClickListener(listener);
+
+//        feelingPhotoList.setClickable(false);
+//        feelingPhotoList.setPressed(false);
+//        feelingPhotoList.setEnabled(false);
+
+//        feelingPhotoList.setOnItemClickListener((AdapterView.OnItemClickListener) listener);
 
         FeelingModel feelingModel=feelingModelList.get(i);
         feelingerPhotoImageView.setImageBitmap(((BitmapDrawable)mContext.getResources().

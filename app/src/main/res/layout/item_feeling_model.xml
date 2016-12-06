@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/id_item_feeling_LL"
     android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -62,7 +64,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/action_comment"/>
+            android:src="@drawable/action_commend"/>
         <TextView
             android:id="@+id/id_feeling_comment_count"
             android:layout_width="wrap_content"
@@ -73,7 +75,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/action_commend"/>
+            android:src="@drawable/action_comment"/>
         <TextView
             android:id="@+id/id_feeling_commend_count"
             android:layout_width="wrap_content"
