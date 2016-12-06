@@ -6,4 +6,6 @@
     <color name="color_tab_select">#02b7ff</color>
     <color name="color_nav_bar_background">#34ccff</color>
     <color name="color_nav_bar_title">#ffffff</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

@@ -19,7 +19,6 @@ import java.util.List;
 
 public class AnnounceFragment extends Fragment implements AnnounceContract.View {
     private AnnounceContract.Presenter announcePresenter;
-
     public static AnnounceFragment newInstance(){
         return new AnnounceFragment();
     }
