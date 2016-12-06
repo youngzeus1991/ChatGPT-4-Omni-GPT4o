@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.scut.itpm.umo.R;
+import com.scut.itpm.umo.core.announce.sociaty.DetailNavBarCallback;
 
 /**
  * Created by DELL on 2016/11/2.
@@ -25,7 +26,8 @@ public class NavBarView extends RelativeLayout implements NavBarContract.View {
     private TextView title;
     private LinearLayout announceTitleLL;
     private Button searchBtn;
-
+    private Button backBtn;
+    private TextView backTitle;
     private TextView mapTitle;
     private TextView sociatyTitle;
     private TextView requirementTitle;
@@ -52,6 +54,8 @@ public class NavBarView extends RelativeLayout implements NavBarContract.View {
         title = (TextView) view.findViewById(R.id.id_nav_bar_title);
         searchBtn = (Button) view.findViewById(R.id.id_nav_bar_search);
         announceTitleLL = (LinearLayout) view.findViewById(R.id.id_nav_bar_announce_title);
+        backBtn= (Button) view.findViewById(R.id.id_nav_bar_back);
+        backTitle= (TextView) view.findViewById(R.id.id_nav_bar_back_title);
 
         mapTitle= (TextView) view.findViewById(R.id.id_nav_bar_map);
         sociatyTitle=(TextView) view.findViewById(R.id.id_nav_bar_sociaty);
@@ -92,7 +96,6 @@ public class NavBarView extends RelativeLayout implements NavBarContract.View {
 
     }
 
-
     @Override
     public void setPresenter(Object presenter) {
         this.presenter = (NavBarPresenter) presenter;
@@ -109,5 +112,30 @@ public class NavBarView extends RelativeLayout implements NavBarContract.View {
             title.setVisibility(INVISIBLE);
             announceTitleLL.setVisibility(VISIBLE);
         }
+    }
+
+    @Override
+    public void setDetailAction(final DetailNavBarCallback callback) {
+        searchBtn.setVisibility(INVISIBLE);
+        settingBtn.setVisibility(INVISIBLE);
+        backTitle.setText("返回");
+        title.setText("详情");
+        backBtn.setVisibility(VISIBLE);
+        backTitle.setVisibility(VISIBLE);
+        backTitle.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callback.onClick(view);
+            }
+        });
+        backBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callback.onClick(view);
+            }
+        });
+
+
+
     }
 }

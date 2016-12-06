@@ -14,7 +14,7 @@ public interface RequirementContract {
     interface View extends BaseView , android.view.View.OnClickListener{
         void showRequirementList(List<RequirementModel> requirementModelList);
         void showNoRequirementList();
-        void showRequirementDetail();
+        void showRequirementDetail(RequirementModel requirementModel);
         void showNoRequirementDetail();
 
     }

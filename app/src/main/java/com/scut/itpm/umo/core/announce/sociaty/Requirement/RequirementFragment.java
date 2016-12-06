@@ -1,5 +1,6 @@
 package com.scut.itpm.umo.core.announce.sociaty.Requirement;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,9 +8,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.scut.itpm.umo.R;
+import com.scut.itpm.umo.core.announce.sociaty.Requirement.RequirementDetail.RequirementDetailActivity;
 import com.scut.itpm.umo.data.announce.RequirementModel;
 
 import java.util.List;
@@ -62,6 +65,12 @@ public class RequirementFragment extends Fragment implements RequirementContract
             }
         });
         requirementListView.setAdapter(adapter);
+        requirementListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                showRequirementDetail((RequirementModel)adapterView.getItemAtPosition(i));
+            }
+        });
     }
 
     @Override
@@ -70,8 +79,12 @@ public class RequirementFragment extends Fragment implements RequirementContract
     }
 
     @Override
-    public void showRequirementDetail() {
-
+    public void showRequirementDetail(RequirementModel requirementModel) {
+        Intent intent=new Intent(getActivity(), RequirementDetailActivity.class);
+        Bundle bundle=new Bundle();
+        bundle.putSerializable("requirementModel",requirementModel);
+        intent.putExtra("bundleRequirementModel",bundle);
+        startActivity(intent);
     }
 
     @Override

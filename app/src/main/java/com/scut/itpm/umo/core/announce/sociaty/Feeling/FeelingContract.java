@@ -1,5 +1,7 @@
 package com.scut.itpm.umo.core.announce.sociaty.Feeling;
 
+import android.widget.AdapterView;
+
 import com.scut.itpm.umo.BasePresenter;
 import com.scut.itpm.umo.BaseView;
 import com.scut.itpm.umo.data.announce.FeelingModel;

@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.scut.itpm.umo.R;
 import com.scut.itpm.umo.core.announce.map.MapFragment;
@@ -27,7 +26,6 @@ import com.scut.itpm.umo.util.RepositoryUtil;
 public class AnnounceFragment extends Fragment implements AnnounceContract.View {
     private boolean isFirstLoad;
     private AnnounceContract.Presenter announcePresenter;
-    private LinearLayout fragmentContainer;
     private  MapFragment mapFragment;
     private  FeelingFragment feelingFragment;
     private  RequirementFragment requirementFragment;
@@ -51,7 +49,6 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //TODO 这里改变Layout配置文件，自定义界面
         View view = inflater.inflate(R.layout.fragment_announce, null);
-        fragmentContainer = (LinearLayout) view.findViewById(R.id.id_announce_LL);
         if(savedInstanceState==null) {
             mapFragment = MapFragment.newInstance();
             feelingFragment = FeelingFragment.newInstance();
@@ -128,7 +125,7 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
         fragmentTransaction.hide(mapFragment)
                 .hide(requirementFragment)
                 .hide(feelingFragment)
-                .show(mapFragment).commit();
+                .show(mapFragment).addToBackStack(null).commit();
 //        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 //        fragmentTransaction.replace(R.id.id_announce_LL,fragments.get(MAP_FRAGMENT)).commit();
     }
@@ -139,7 +136,7 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
         fragmentTransaction.hide(mapFragment)
                 .hide(requirementFragment)
                 .hide(feelingFragment)
-                .show(feelingFragment).commit();//        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                .show(feelingFragment).addToBackStack(null).commit();//        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 //        fragmentTransaction.replace(R.id.id_announce_LL,fragments.get(FEELING_FRAGMENT)).commit();
     }
 
@@ -149,7 +146,7 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
         fragmentTransaction.hide(mapFragment)
                 .hide(requirementFragment)
                 .hide(feelingFragment)
-                .show(requirementFragment).commit();//        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                .show(requirementFragment).addToBackStack(null).commit();//        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 //        fragmentTransaction.replace(R.id.id_announce_LL,fragments.get(FEELING_FRAGMENT)).commit();
     }
 }

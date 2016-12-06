@@ -1,5 +1,6 @@
 package com.scut.itpm.umo.core.announce.sociaty.Feeling;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,9 +8,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.scut.itpm.umo.R;
+import com.scut.itpm.umo.core.announce.sociaty.Feeling.FeelingDetail.FeelingDetailActivity;
 import com.scut.itpm.umo.data.announce.FeelingModel;
 
 import java.util.List;
@@ -58,13 +61,23 @@ public class FeelingFragment extends Fragment implements FeelingContract.View {
             }
         });
         feelingListView.setAdapter(adapter);
+        feelingListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                showFeelingDetail((FeelingModel)adapterView.getItemAtPosition(i));
+            }
+        });
 
 
     }
 
     @Override
     public void showFeelingDetail(FeelingModel feeling) {
-
+        Intent intent=new Intent(getActivity(), FeelingDetailActivity.class);
+        Bundle bundle=new Bundle();
+        bundle.putSerializable("feelingModel",feeling);
+        intent.putExtra("bundleFeelingModel",bundle);
+        startActivity(intent);
     }
 
     @Override
@@ -80,10 +93,24 @@ public class FeelingFragment extends Fragment implements FeelingContract.View {
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.id_feeling_feelinger_photo:
+            case R.id.id_feeling_feelinger_name:
             case R.id.id_feeling_comment_button:
             case R.id.id_feeling_commend_button:
             case R.id.id_feeling_share_button:
         }
 
     }
+
+//    @Override
+//    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//        Object object=adapterView.getItemAtPosition(i);
+//
+//        if(object instanceof Bitmap){
+//            showPhotoDetail((Bitmap)object);
+//        }
+//    }
+//
+//    private void showPhotoDetail(Bitmap object) {
+//    }
 }

@@ -1,12 +1,13 @@
 package com.scut.itpm.umo.data.announce;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by DELL on 2016/11/30.
  */
 
-public class RequirementModel {
+public class RequirementModel implements Serializable {
 
     private int requirementID;
     private String requirementTag;

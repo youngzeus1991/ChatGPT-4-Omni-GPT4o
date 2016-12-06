@@ -31,8 +31,8 @@ public class FakeDataProvider {
         fake1.setViewCount(1240);
         fake1.setFeelingLocation("华南理工大学");
         List imageList=new ArrayList();
-        imageList.add(R.drawable.action_commend);
         imageList.add(R.drawable.action_comment);
+        imageList.add(R.drawable.action_commend);
         imageList.add(R.drawable.action_view);
         imageList.add(R.drawable.fake_data_announce_2);
         imageList.add(R.drawable.fake_data_announce_3);
@@ -105,8 +105,8 @@ public class FakeDataProvider {
         fake1.setViewCount(145);
         fake1.setRequirementLocation("华南理工大学");
         List imageList=new ArrayList();
-        imageList.add(R.drawable.action_commend);
         imageList.add(R.drawable.action_comment);
+        imageList.add(R.drawable.action_commend);
         imageList.add(R.drawable.action_view);
         imageList.add(R.drawable.fake_data_announce_2);
         imageList.add(R.drawable.fake_data_announce_3);
