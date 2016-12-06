@@ -3,11 +3,14 @@ package com.scut.itpm.umo.data;
 import com.scut.itpm.umo.R;
 import com.scut.itpm.umo.data.announce.FeelingModel;
 import com.scut.itpm.umo.data.announce.RequirementModel;
+import com.scut.itpm.umo.data.chat.ChatMessageModel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by DELL on 2016/11/30.
@@ -162,5 +165,172 @@ public class FakeDataProvider {
         requirementModelList.add(fake2);
 
         return requirementModelList;
+    }
+
+//    public interface PhoneService {
+//        @GET("UserService/users")
+//        Call<test> getResult();
+//    }
+
+    public static List<Map<String,Object>> getMessageList(){
+
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .addConverterFactory(SimpleXmlConverterFactory.create())
+//                .baseUrl("http://localhost:8080/umo/rest/")
+//                .build();
+//        PhoneService service = retrofit.create(PhoneService.class);
+//        Call<test> call = service.getResult();
+//        call.enqueue(new Callback<test>() {
+//            @Override
+//            public void onResponse(Call<test> call, Response<test> response) {
+////                test mytest=response.body();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<test> call, Throwable throwable) {
+//
+//            }
+//        });
+
+
+        List<Map<String,Object>> messageModelList=new ArrayList<Map<String,Object>>();
+        //TODO 设置假数据
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("title","张三");
+        map.put("info","你好");
+        map.put("img", R.drawable.u426);
+        map.put("time","一分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张一");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","两分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张二");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","三分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张三");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","四分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张四");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","五分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张五");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","五分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张六");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","六分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张七");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","七分钟前");
+        messageModelList.add(map);
+
+
+        map = new HashMap<String,Object>();
+        map.put("title","张八");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","八分钟前");
+        messageModelList.add(map);
+
+
+        map = new HashMap<String,Object>();
+        map.put("title","张九");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","九分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张十");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","十分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张十一");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","十一分钟前");
+        messageModelList.add(map);
+
+        map = new HashMap<String,Object>();
+        map.put("title","张十二");
+        map.put("info","你好");
+        map.put("img",R.drawable.u426);
+        map.put("time","十二分钟前");
+        messageModelList.add(map);
+
+        return messageModelList;
+    }
+
+    public static List<ChatMessageModel> getChatMessageList(){
+        List<ChatMessageModel> chatMessageModelList = new ArrayList<>();
+
+        String[] msgArray = new String[]{"  孩子们，要好好学习，天天向上！要好好听课，不要翘课！不要挂科，多拿奖学金！三等奖学金的争取拿二等，二等的争取拿一等，一等的争取拿励志！",
+                "姚妈妈还有什么吩咐...",
+                "还有，明天早上记得跑操啊，不来的就扣德育分！",
+                "德育分是什么？扣了会怎么样？",
+                "德育分会影响奖学金评比，严重的话，会影响毕业",
+                "哇！学院那么不人道？",
+                "你要是你不听话，我当场让你不能毕业！",
+                "姚妈妈，我知错了(- -我错在哪了...)"};
+
+        String[]dataArray = new String[]{"2012-09-01 18:00", "2012-09-01 18:10",
+                "2012-09-01 18:11", "2012-09-01 18:20",
+                "2012-09-01 18:30", "2012-09-01 18:35",
+                "2012-09-01 18:40", "2012-09-01 18:50"};
+
+        int COUNT = 8;
+
+        chatMessageModelList = initData(COUNT,msgArray,dataArray);
+        return chatMessageModelList;
+    }
+
+    public static List<ChatMessageModel> initData(int COUNT,String[] msgArray,String[] dataArray) {
+        List<ChatMessageModel> chatMessageModelList = new ArrayList<>();
+        for(int i = 0; i < COUNT; i++) {
+            ChatMessageModel entity = new ChatMessageModel();
+            entity.setDate(dataArray[i]);
+            if (i % 2 == 0)
+            {
+//                entity.setName("姚妈妈");
+                entity.setMsgType(true);
+            }else{
+//                entity.setName("Shamoo");
+                entity.setMsgType(false);
+            }
+
+            entity.setText(msgArray[i]);
+            chatMessageModelList.add(entity);
+        }
+        return chatMessageModelList;
     }
 }
