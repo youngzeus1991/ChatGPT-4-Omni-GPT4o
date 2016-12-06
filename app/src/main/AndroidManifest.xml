@@ -15,12 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".chat.ChatActivity"
             android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".core.signupActivity" />
         <activity android:name=".core.Main.MainActivity" />
-=======
 
         <activity android:name=".core.announce.sociaty.Feeling.FeelingDetail.FeelingDetailActivity">
 
@@ -28,7 +26,6 @@
         <activity android:name=".core.announce.sociaty.Requirement.RequirementDetail.RequirementDetailActivity">
 
         </activity>
->>>>>>> refs/remotes/origin/Dio
 
     </application>
 

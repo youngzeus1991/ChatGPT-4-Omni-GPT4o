@@ -6,7 +6,6 @@
     <com.scut.itpm.umo.chat.top.chatTopView
         android:id="@+id/layout_chattop"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nav_bar_hight">
         android:layout_height="@dimen/nav_bar_height">
     </com.scut.itpm.umo.chat.top.chatTopView>
 
