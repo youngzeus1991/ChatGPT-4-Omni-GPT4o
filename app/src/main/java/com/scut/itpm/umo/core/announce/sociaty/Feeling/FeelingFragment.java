@@ -2,6 +2,7 @@ package com.scut.itpm.umo.core.announce.sociaty.Feeling;
 
 import android.content.Intent;
 import android.database.DataSetObserver;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -61,13 +62,7 @@ public class FeelingFragment extends Fragment implements FeelingContract.View {
             }
         });
         feelingListView.setAdapter(adapter);
-        feelingListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                showFeelingDetail((FeelingModel)adapterView.getItemAtPosition(i));
-            }
-        });
-
+        feelingListView.setOnItemClickListener(this);
 
     }
 
@@ -96,21 +91,26 @@ public class FeelingFragment extends Fragment implements FeelingContract.View {
             case R.id.id_feeling_feelinger_photo:
             case R.id.id_feeling_feelinger_name:
             case R.id.id_feeling_comment_button:
+                feelingPresenter.handleComment();
             case R.id.id_feeling_commend_button:
+                feelingPresenter.handleCommend();
             case R.id.id_feeling_share_button:
         }
 
     }
 
-//    @Override
-//    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//        Object object=adapterView.getItemAtPosition(i);
-//
-//        if(object instanceof Bitmap){
-//            showPhotoDetail((Bitmap)object);
-//        }
-//    }
-//
-//    private void showPhotoDetail(Bitmap object) {
-//    }
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Object object=adapterView.getItemAtPosition(i);
+        if(object instanceof FeelingModel){
+            showFeelingDetail((FeelingModel)adapterView.getItemAtPosition(i));
+        }
+
+        if(object instanceof Bitmap){
+            showPhotoDetail((Bitmap)object);
+        }
+    }
+
+    private void showPhotoDetail(Bitmap object) {
+    }
 }

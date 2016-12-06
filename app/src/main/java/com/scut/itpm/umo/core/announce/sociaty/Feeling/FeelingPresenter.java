@@ -44,4 +44,14 @@ public class FeelingPresenter implements FeelingContract.Presenter{
     public void fetchFeelingDetail(int ID) {
 
     }
+
+    @Override
+    public void handleCommend() {
+
+    }
+
+    @Override
+    public void handleComment() {
+
+    }
 }

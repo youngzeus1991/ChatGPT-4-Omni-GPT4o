@@ -3,6 +3,7 @@ package com.scut.itpm.umo.network;
 import com.scut.itpm.umo.data.announce.AnnounceDataSource;
 import com.scut.itpm.umo.data.announce.FeelingModel;
 import com.scut.itpm.umo.data.announce.RequirementModel;
+import com.scut.itpm.umo.util.UserUtil;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by DELL on 2016/12/6.
  */
 
-public class HTTPManager {
+public class HTTPManager implements HTTPContract{
     private static HTTPManager INSTANCE;
     private APIService apiService;
 
@@ -33,8 +34,9 @@ public class HTTPManager {
         }
         return INSTANCE=new HTTPManager();
     }
-    public void httpGetRequirementList(final AnnounceDataSource.GetRequirementListCallback callback){
-        Call<List<RequirementModel>> call=apiService.getRequirementList();
+    @Override
+    public void getRequirementList(final AnnounceDataSource.GetRequirementListCallback callback){
+        Call<List<RequirementModel>> call=apiService.getRequirementList(UserUtil.getUserID());
         call.enqueue(new Callback<List<RequirementModel>>() {
             @Override
             public void onResponse(Call<List<RequirementModel>> call, Response<List<RequirementModel>> response) {
@@ -47,8 +49,9 @@ public class HTTPManager {
             }
         });
     }
-    public void httpGetFeelingList(final AnnounceDataSource.GetFeelingListCallback callback){
-        Call<List<FeelingModel>> call=apiService.getFeelingList();
+    @Override
+    public void getFeelingList(final AnnounceDataSource.GetFeelingListCallback callback){
+        Call<List<FeelingModel>> call=apiService.getFeelingList(UserUtil.getUserID());
         call.enqueue(new Callback<List<FeelingModel>>() {
             @Override
             public void onResponse(Call<List<FeelingModel>> call, Response<List<FeelingModel>> response) {
@@ -61,6 +64,17 @@ public class HTTPManager {
             }
         });
     }
+
+    @Override
+    public void postFeelingCommend() {
+
+    }
+
+    @Override
+    public void postFeelingComment() {
+
+    }
+
     private String getServerIP(){
         return ("http://"+"192.168.1.1");
     }
