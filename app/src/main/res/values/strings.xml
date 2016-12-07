@@ -6,11 +6,21 @@
     <string name="follow">关注</string>
     <string name="inform">提醒</string>
 
+    <string name="sending_message">发送消息</string>
+    <string name="detail_information">详细信息</string>
+    <string name="user_nickname">李杭澍</string>
+    <string name="user_id">lhs</string>
+    <string name="remark">备注</string>
+    <string name="sign">签名</string>
+    <string name="is_online">[在线]</string>
+
+
 
     <string name="title_activity_inform_detail">InformDetail</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="user_info">[sign]</string>
+>>>>>>> refs/remotes/origin/master
 
 </resources>

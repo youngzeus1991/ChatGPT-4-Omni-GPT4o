@@ -22,6 +22,7 @@ import com.scut.itpm.umo.core.inform.InformFragment;
 import com.scut.itpm.umo.core.inform.InformPresenter;
 import com.scut.itpm.umo.core.message.MessageFragment;
 import com.scut.itpm.umo.core.message.MessagePresenter;
+
 import com.scut.itpm.umo.util.RepositoryUtil;
 
 import java.util.ArrayList;
@@ -49,15 +50,16 @@ public class MainActivity extends BaseActivity {
     //耀友增加
     private MessagePresenter mesPresenter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mainView = (MainView) findViewById(R.id.id_main_main);
         navBarView = (NavBarView) findViewById(R.id.id_main_nav_bar);
         viewPager = (ViewPager) mainView.findViewById(R.id.id_main_view_pager);
+
 
         initFragment();
         initViewPager();
@@ -67,7 +69,6 @@ public class MainActivity extends BaseActivity {
         mainPresenter.start();
 
     }
-
 
     private void initFragment() {
         messageFragment = MessageFragment.newInstance(this);
@@ -90,6 +91,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initPresenter() {
+
 
         navBarPresenter = new NavBarPresenter(navBarView, new Connector.CallbackOnNavBar() {
 
@@ -128,5 +130,6 @@ public class MainActivity extends BaseActivity {
 
     private void initListener() {
         mainView.setListener((MainPresenter) mainPresenter);
+
     }
 }

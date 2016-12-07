@@ -13,9 +13,9 @@
         android:layout_marginTop="12dp"
         android:scaleType="centerInside"
         android:src="@drawable/rounds_close"/>
-<!--jk-->
+
     <TextView
-        android:id="@+id/group_title"
+        android:id="@+id/group_name"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_alignParentLeft="true"
@@ -26,4 +26,16 @@
         android:text="关注的人"
         android:textSize="18sp"/>
 
+    <TextView
+        android:id="@+id/children_count"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginRight="12dp"
+        android:paddingLeft="2dp"
+        android:paddingTop="2dp"
+        android:text="2"
+        android:textSize="14sp"/>
 </RelativeLayout>

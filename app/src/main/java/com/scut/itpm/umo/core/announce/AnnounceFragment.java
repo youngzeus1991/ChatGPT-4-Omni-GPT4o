@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.scut.itpm.umo.R;
+
 import com.scut.itpm.umo.core.announce.map.MapFragment;
 import com.scut.itpm.umo.core.announce.map.MapPresenter;
 import com.scut.itpm.umo.core.announce.sociaty.Feeling.FeelingFragment;
@@ -19,11 +20,13 @@ import com.scut.itpm.umo.core.announce.sociaty.Requirement.RequirementFragment;
 import com.scut.itpm.umo.core.announce.sociaty.Requirement.RequirementPresenter;
 import com.scut.itpm.umo.util.RepositoryUtil;
 
+
 /**
  * Created by DELL on 11/02.
  */
 
 public class AnnounceFragment extends Fragment implements AnnounceContract.View {
+
     private boolean isFirstLoad;
     private AnnounceContract.Presenter announcePresenter;
 //<<<<<<< HEAD
@@ -73,6 +76,7 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
             new RequirementPresenter(requirementFragment, RepositoryUtil.getAnnounceRepository(getContext()));
         }
 
+
         return view;
     }
 
@@ -105,6 +109,7 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
 
     @Override
     public void setPresenter(Object presenter) {
+
         this.announcePresenter = (AnnounceContract.Presenter) presenter;
     }
 
@@ -152,5 +157,6 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
                 .hide(feelingFragment)
                 .show(requirementFragment).addToBackStack(null).commit();//        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 //        fragmentTransaction.replace(R.id.id_announce_LL,fragments.get(FEELING_FRAGMENT)).commit();
+
     }
 }

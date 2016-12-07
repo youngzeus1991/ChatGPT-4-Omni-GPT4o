@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.scut.itpm.umo.R;
+import com.scut.itpm.umo.data.contact.ContactChildModel;
+import com.scut.itpm.umo.data.contact.ContactGroupModel;
 
 import java.util.List;
 
@@ -18,14 +20,10 @@ import java.util.List;
 
 public class ContactAdapter extends BaseExpandableListAdapter{
 
-    private List<GroupBean> list;
+    private List<ContactGroupModel> list;
     private Context context;
-/**
-    public Context getContext() {
-        return context;
-    }
-**/
-    public ContactAdapter(List<GroupBean> list,Context context){
+
+    public ContactAdapter(List<ContactGroupModel> list, Context context){
         this.context = context;
         this.list = list;
     }
@@ -75,17 +73,25 @@ public class ContactAdapter extends BaseExpandableListAdapter{
         if(convertView == null){
             holder = new GroupHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.item_group,null);
-            holder.title = (TextView)convertView.findViewById(R.id.group_title);
-            holder.avatar = (ImageView)convertView.findViewById(R.id.rounds);
+            holder.groupName = (TextView)convertView.findViewById(R.id.group_name);
+            holder.roundsImg = (ImageView)convertView.findViewById(R.id.rounds);
+            holder.childrenNum = (TextView)convertView.findViewById(R.id.children_count);
             convertView.setTag(holder);
         }else{
             holder = (GroupHolder)convertView.getTag();
         }
-        holder.title.setText(list.get(groupPosition).getGroupName());
+        ContactGroupModel groupModel = list.get(groupPosition);
+
+        holder.groupName.setText(groupModel.getGroupName());
+
+        //设置分组容量
+        String childrenContent = String.valueOf(getChildrenCount(groupPosition));
+        holder.childrenNum.setText(childrenContent);
+
         if(isExpanded){
-            holder.avatar.setImageResource(R.drawable.rounds_open);
+            holder.roundsImg.setImageResource(R.drawable.rounds_open);
         }else{
-            holder.avatar.setImageResource(R.drawable.rounds_close);
+            holder.roundsImg.setImageResource(R.drawable.rounds_close);
         }
         return convertView;
     }
@@ -100,30 +106,39 @@ public class ContactAdapter extends BaseExpandableListAdapter{
             holder.avatar = (ImageView)convertView.findViewById(R.id.child_avatar);
             holder.nickName = (TextView)convertView.findViewById(R.id.child_name);
             holder.sign = (TextView)convertView.findViewById(R.id.child_sign);
+            holder.isOnline = (TextView)convertView.findViewById(R.id.is_online);
             convertView.setTag(holder);
         }else{
             holder = (ChildHolder)convertView.getTag();
         }
-        ChildBean childBean = list.get(groupPosition).getChildren().get(childPosition);
-        holder.avatar.setImageResource(childBean.getImgId());
-        holder.nickName.setText(childBean.getNickName());
-        holder.sign.setText(context.getString(R.string.user_info) + childBean.getSign());
+        ContactChildModel childModel = list.get(groupPosition).getChildren().get(childPosition);
+        holder.avatar.setImageResource(childModel.getAvatarId());
+        holder.nickName.setText(childModel.getNickName());
+        holder.sign.setText("sign:" + childModel.getSign());
+        if(childModel.isOnline()){
+            holder.isOnline.setText("[在线]");
+        }else{
+            holder.isOnline.setText("[离线]");
+        }
         return convertView;
     }
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return false;
+        //it is necessary to realize ChildView onClick Event,we must return true
+        return true;
     }
 
     private class GroupHolder {
-        TextView title;
-        ImageView avatar;
+        TextView groupName;
+        ImageView roundsImg;
+        TextView childrenNum;
     }
 
     private class ChildHolder {
         ImageView avatar;
         TextView nickName;
         TextView sign;
+        TextView isOnline;
     }
 }

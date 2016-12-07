@@ -7,6 +7,7 @@
 
 
 
+
     <RadioGroup
         android:id="@+id/id_main_radio_group_tab_bar"
         android:layout_width="match_parent"
@@ -39,13 +40,14 @@
         <RadioButton
             android:id="@+id/id_main_radio_follow"
             style="@style/radio_button_same_attr"
-            android:drawableTop="@drawable/main_tab_bar_follow"
-            android:text="@string/follow" />
+            android:drawableTop="@drawable/main_tab_bar_follow"/>
 
         <RadioButton
             android:id="@+id/id_main_radio_inform"
             style="@style/radio_button_same_attr"
+
             android:drawableTop="@drawable/main_tab_bar_inform"
+
             android:text="@string/inform" />
 
 
@@ -55,6 +57,7 @@
         android:id="@+id/id_main_view_line"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
+
         android:layout_above="@id/id_main_radio_group_tab_bar"
         android:layout_marginBottom="10dp"
         android:background="@android:color/black" />
@@ -63,6 +66,7 @@
         android:id="@+id/id_main_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_above="@id/id_main_view_line">

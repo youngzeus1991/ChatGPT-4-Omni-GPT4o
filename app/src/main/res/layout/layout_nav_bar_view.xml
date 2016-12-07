@@ -15,6 +15,7 @@
         android:layout_marginLeft="@dimen/marin_edge"
         android:background="@drawable/nav_bar_menu"
         />
+
     <Button
         android:id="@+id/id_nav_bar_back"
         android:layout_width="20dp"

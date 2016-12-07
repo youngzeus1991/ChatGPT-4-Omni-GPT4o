@@ -6,12 +6,13 @@
     <RelativeLayout
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
 
         <ImageView
             android:id="@+id/child_avatar"
             android:layout_alignParentLeft="true"
-            android:scaleType="centerInside"
+            android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/avatar_1"/>
@@ -20,17 +21,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        >
 
         <TextView
             android:id="@+id/child_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:paddingLeft="4dp"
             android:paddingRight="10dp"
             android:paddingTop="4dp"
             android:layout_marginTop="10dp"
-            android:text="姓名"
+            android:text="@string/user_nickname"
             android:textSize="18sp" />
 
         <TextView
@@ -40,8 +42,19 @@
             android:layout_below="@id/child_name"
             android:paddingLeft="4dp"
             android:paddingRight="10dp"
-            android:text="签名"
+            android:text="@string/sign"
             android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/is_online"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/is_online"
+            android:textSize="16sp"
+            android:paddingTop="4dp"
+            android:layout_above="@+id/child_sign"
+            android:layout_toRightOf="@+id/child_name"
+            android:layout_toEndOf="@+id/child_name" />
     </RelativeLayout>
 
 </LinearLayout>
