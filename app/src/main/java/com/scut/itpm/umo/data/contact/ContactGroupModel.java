@@ -1,4 +1,4 @@
-package com.scut.itpm.umo.core.contact;
+package com.scut.itpm.umo.data.contact;
 
 import java.util.List;
 
@@ -6,10 +6,11 @@ import java.util.List;
  * 创建子列表的分组类
  * Created by Administrator on 2016/12/1.
  */
-public class GroupBean {
+public class ContactGroupModel {
 
     private String groupName;
-    private List<ChildBean> children;
+
+    private List<ContactChildModel> children;
 
     public String getGroupName(){
         return groupName;
@@ -19,20 +20,20 @@ public class GroupBean {
         this.groupName = groupName;
     }
 
-    public List<ChildBean> getChildren(){
+    public List<ContactChildModel> getChildren(){
         return children;
     }
 
-    public void setChildren(List<ChildBean> children){
+    public void setChildren(List<ContactChildModel> children){
         this.children = children;
     }
 
-    public GroupBean(String groupName,List<ChildBean> children){
+    public ContactGroupModel(String groupName, List<ContactChildModel> children){
         this.groupName = groupName;
         this.children = children;
     }
 
-    public GroupBean(){
+    public ContactGroupModel(){
 
     }
 }
