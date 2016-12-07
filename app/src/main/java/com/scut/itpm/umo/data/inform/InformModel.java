@@ -37,23 +37,29 @@ public class InformModel {
         public int getTimeDifference(){
             int differenceTime=0;
             Calendar SystemTime=Calendar.getInstance();
-            int tempInformTime=this.InformTime.get(Calendar.MINUTE)*60*1000+this.InformTime.get(Calendar.SECOND)*1000;
-            int tempSystemTime=SystemTime.get(Calendar.MINUTE)*60*1000+SystemTime.get(Calendar.SECOND)*1000;
+            int tempInformTime=this.InformTime.get(Calendar.DAY_OF_MONTH)*24*60*60*1000+this.InformTime.get(Calendar.HOUR)*60*60*1000+this.InformTime.get(Calendar.MINUTE)*60*1000+this.InformTime.get(Calendar.SECOND)*1000;
+            int tempSystemTime=SystemTime.get(Calendar.DAY_OF_MONTH)*24*60*60*1000+SystemTime.get(Calendar.HOUR)*60*60*1000+SystemTime.get(Calendar.MINUTE)*60*1000+SystemTime.get(Calendar.SECOND)*1000;
             int tempDifferenceTime=tempSystemTime-tempInformTime;
             differenceTime=(tempDifferenceTime/1000)/60;
             return differenceTime;
+        }
+        public String getInformDetailTime(){
+            return InformTime.get(Calendar.YEAR)+"年"+InformTime.get(Calendar.MONTH)
+                    +"月"+InformTime.get(Calendar.DAY_OF_MONTH)
+                    +"日"+InformTime.get(Calendar.HOUR)
+                    +": "+InformTime.get(Calendar.MINUTE);
         }
     }
 
     //Image operation
     class InformImage{
-        private Bitmap UserImage;
+        private int UserImageID;
         public InformImage(){
 
         }
-        public Bitmap getUserImage(){return UserImage;}
-        public void setUserImage(){
-           // UserImage=R.drawable.simple_01;
+        public int getUserImageID(){return UserImageID;}
+        public void setUserImageID(int imageID){
+           UserImageID=imageID;
         }
 
     }
@@ -82,6 +88,10 @@ public class InformModel {
     public int getInformTimeDifference(){
         return this.InformTime.getTimeDifference();
     }
+    public String getInformDetailTime(){return this.InformTime.getInformDetailTime();}
+
+    public int getInformImageID(){ return  this.InformImage.getUserImageID();}
+    public void setInformImageID(int imageID){ this.InformImage.setUserImageID(imageID);}
     //charge network
     public static boolean isNetworkConnected(Context context){
         if(context!=null){
