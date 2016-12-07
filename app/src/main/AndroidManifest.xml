@@ -23,10 +23,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".core.inform.InformDetail"></activity>
+        <activity
+            android:name=".core.inform.InformDetail">
+        </activity>
 
-        <activity android:name=".chat.ChatActivity"
+        <activity
+            android:name=".chat.ChatActivity"
             android:windowSoftInputMode="stateHidden"/>
+
         <activity android:name=".core.signupActivity" />
 
         <activity android:name=".core.Main.MainActivity" />
@@ -42,7 +46,7 @@
         </activity>
 
         <activity android:name=".core.announce.map.add.AddRequirementActivity">
-            
+
         </activity>
 
     </application>
