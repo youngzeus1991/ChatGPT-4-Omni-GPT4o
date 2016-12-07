@@ -3,6 +3,7 @@ package com.scut.itpm.umo.core;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import android.widget.ImageButton;
 
 import com.scut.itpm.umo.R;
 import com.scut.itpm.umo.core.Main.MainActivity;
+import com.scut.itpm.umo.util.UserInfo;
 
 /**
  * Created by youyou on 16-4-16.
@@ -31,6 +33,7 @@ public class signinActivity extends Activity {
         Button signin=(Button) findViewById(R.id.btn_signin);
         signin.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
+                dologin();
                 Intent intent = new Intent();
                 intent.setClass(signinActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -60,6 +63,11 @@ public class signinActivity extends Activity {
 
             }
         });
+    }
 
+    public void dologin(){
+        //// TODO: 2016/12/7 具体的登陆操作
+        String userid = qqEdit.getText().toString();
+        UserInfo.setUserid(userid);
     }
 }
