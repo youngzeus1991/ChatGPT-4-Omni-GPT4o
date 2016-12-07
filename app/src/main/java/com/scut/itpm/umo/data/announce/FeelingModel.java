@@ -1,5 +1,7 @@
 package com.scut.itpm.umo.data.announce;
 
+import com.scut.itpm.umo.data.follow.FollowModel;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -7,7 +9,7 @@ import java.util.List;
  * Created by DELL on 2016/11/30.
  */
 
-public class FeelingModel implements Serializable{
+public class FeelingModel extends FollowModel implements Serializable{
     private int feelingerPhotoResID;
     private int feelingID;
     private String feelingContent;

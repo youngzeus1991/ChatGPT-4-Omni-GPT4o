@@ -37,7 +37,13 @@
         <activity android:name=".core.announce.sociaty.Requirement.RequirementDetail.RequirementDetailActivity">
 
         </activity>
+        <activity android:name=".core.announce.map.add.AddFeelingActivity">
 
+        </activity>
+
+        <activity android:name=".core.announce.map.add.AddRequirementActivity">
+            
+        </activity>
 
     </application>
 

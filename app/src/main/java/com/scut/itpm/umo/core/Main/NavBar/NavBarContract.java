@@ -2,7 +2,7 @@ package com.scut.itpm.umo.core.Main.NavBar;
 
 import com.scut.itpm.umo.BasePresenter;
 import com.scut.itpm.umo.BaseView;
-import com.scut.itpm.umo.core.announce.sociaty.DetailNavBarCallback;
+import com.scut.itpm.umo.core.announce.sociaty.NavBarCallback;
 
 /**
  * Created by DELL on 2016/11/2.
@@ -11,7 +11,8 @@ import com.scut.itpm.umo.core.announce.sociaty.DetailNavBarCallback;
 public interface NavBarContract {
     interface View extends BaseView {
         void setCurrentTitle(String titleTobe);
-        void setDetailAction(DetailNavBarCallback callback);
+        void setDetailAction(NavBarCallback callback);
+        void setAddAction(NavBarCallback callback);
 
     }
 

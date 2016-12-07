@@ -6,6 +6,6 @@ import android.view.View;
  * Created by DELL on 2016/12/6.
  */
 
-public interface DetailNavBarCallback extends View.OnClickListener{
+public interface NavBarCallback extends View.OnClickListener{
 
 }

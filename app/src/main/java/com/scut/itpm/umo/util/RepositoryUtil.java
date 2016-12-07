@@ -6,6 +6,9 @@ import com.scut.itpm.umo.data.announce.AnnounceRepository;
 import com.scut.itpm.umo.data.announce.local.AnnounceLocalDataSource;
 import com.scut.itpm.umo.data.announce.remote.AnnounceRemoteDataSource;
 
+import com.scut.itpm.umo.data.follow.FollowRepository;
+import com.scut.itpm.umo.data.follow.local.FollowLocalDateSource;
+import com.scut.itpm.umo.data.follow.remote.FollowRemoteDateSource;
 import com.scut.itpm.umo.data.inform.InformRepository;
 import com.scut.itpm.umo.data.inform.local.InformLocalDataSource;
 import com.scut.itpm.umo.data.inform.remote.InformRemoteDataSource;
@@ -40,6 +43,9 @@ public class RepositoryUtil {
     public static ChatMessageRepository getChatMessageRepository(Context context){
         return ChatMessageRepository.getINSTANCE(context, ChatMessageLocalDataSource.getINSTANCE(context), ChatMessageRemoteDataSource.getINSTANCE(context));
 
+    }
+    public static FollowRepository getFollowRepository(Context context){
+        return FollowRepository.getInstance(context, FollowLocalDateSource.getInstance(context), FollowRemoteDateSource.getInstance(context));
     }
 
 }

@@ -1,5 +1,7 @@
 package com.scut.itpm.umo.data.announce;
 
+import com.scut.itpm.umo.data.follow.FollowModel;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -7,7 +9,7 @@ import java.util.List;
  * Created by DELL on 2016/11/30.
  */
 
-public class RequirementModel implements Serializable {
+public class RequirementModel extends FollowModel implements Serializable {
 
     private int requirementID;
     private String requirementTag;

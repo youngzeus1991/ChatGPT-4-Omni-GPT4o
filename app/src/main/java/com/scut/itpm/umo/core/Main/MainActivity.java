@@ -18,6 +18,7 @@ import com.scut.itpm.umo.core.announce.AnnounceFragment;
 import com.scut.itpm.umo.core.announce.AnnouncePresenter;
 import com.scut.itpm.umo.core.contact.ContactFragment;
 import com.scut.itpm.umo.core.follow.FollowFragment;
+import com.scut.itpm.umo.core.follow.FollowPresenter;
 import com.scut.itpm.umo.core.inform.InformFragment;
 import com.scut.itpm.umo.core.inform.InformPresenter;
 import com.scut.itpm.umo.core.message.MessageFragment;
@@ -122,6 +123,7 @@ public class MainActivity extends BaseActivity {
         new InformPresenter(informFragment,RepositoryUtil.getInformRepository(this));
 
         mesPresenter = new MessagePresenter(messageFragment,RepositoryUtil.getMessageRepository(this));
+        new FollowPresenter(RepositoryUtil.getFollowRepository(this),followFragment);
 
     }
 

@@ -9,10 +9,11 @@
 
     <color name="black_overlay">#66000000</color>
 
-    <color name="color_nav_bar_title_background">#ffffff</color>
+    <color name="color_write">#ffffff</color>
     <color name="color_nav_bar_title">#000000</color>
     <color name="color_nav_bar_title_block_line">#cccccc</color>
     <color name="color_divide">#9E9E9E</color>
+    <color name="color_add_back_ground">#676767</color>
 
 
 </resources>
