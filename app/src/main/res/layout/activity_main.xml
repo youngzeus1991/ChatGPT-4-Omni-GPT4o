@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+
     <com.scut.itpm.umo.core.Main.NavBar.NavBarView
         android:id="@+id/id_main_nav_bar"
         android:layout_width="match_parent"
