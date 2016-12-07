@@ -349,15 +349,34 @@ public class FakeDataProvider {
         List<InformModel>SampleInformList=new ArrayList<>();
 
       InformModel sampleInformModel= new InformModel("土豪","一起来玩把");
+       sampleInformModel.setInformImageID(R.drawable.simple_01);
        SampleInformList.add(sampleInformModel);
 
        sampleInformModel=new InformModel("小冰","预约了你的需求");
+       sampleInformModel.setInformImageID(R.drawable.simple_02);
        SampleInformList.add(sampleInformModel);
 
        sampleInformModel=new InformModel("小贤","发布了新的动态");
+       sampleInformModel.setInformImageID(R.drawable.simple_03);
        SampleInformList.add(sampleInformModel);
 
-        return SampleInformList;
+       sampleInformModel=new InformModel("杭澍","预约了你的需求");
+       sampleInformModel.setInformImageID(R.drawable.simple_02);
+       SampleInformList.add(sampleInformModel);
+
+       sampleInformModel=new InformModel("小明","发布了新的动态");
+       sampleInformModel.setInformImageID(R.drawable.simple_03);
+       SampleInformList.add(sampleInformModel);
+
+       sampleInformModel=new InformModel("小刚","预约了你的需求");
+       sampleInformModel.setInformImageID(R.drawable.simple_02);
+       SampleInformList.add(sampleInformModel);
+
+       sampleInformModel=new InformModel("小贤","发布了新的动态");
+       sampleInformModel.setInformImageID(R.drawable.simple_03);
+       SampleInformList.add(sampleInformModel);
+
+       return SampleInformList;
     }
     public static List<FollowModel> getFollowList(){
         List<FollowModel> followModelList=new ArrayList<>();

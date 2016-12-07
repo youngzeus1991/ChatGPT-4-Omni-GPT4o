@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.SimpleAdapter;
@@ -24,7 +25,7 @@ import java.util.Map;
  * Created by DELL on 2016/11/2.
  */
 
-public class InformPresenter implements  InformContract.Presenter{
+public class InformPresenter  implements  InformContract.Presenter{
     private static SimpleAdapter InformViewAdapter;
     //bind informRepository and fragment
     private  InformRepository InformRepository;
@@ -33,12 +34,10 @@ public class InformPresenter implements  InformContract.Presenter{
     final ArrayList<InformModel> informList;
     //variables for handle the informdetail
     private InformDetail informDetail;
-    //fragment manage
-    private android.support.v4.app.FragmentManager fragmentManager;
-    private FragmentTransaction transaction;
 
     //construct function
    public InformPresenter(InformContract.View informFragmentView, InformRepository informRepository){
+
        this.InformFragmentView=informFragmentView;
        this.InformRepository=informRepository;
        this.InformFragmentView.setPresenter(this);
@@ -81,8 +80,8 @@ public class InformPresenter implements  InformContract.Presenter{
             map.put(InformConstName.inform_data_time,informList.get(i).getInformTimeDifference()+"分钟前");
             Log.d(InformConstName.inform_data_time,informList.get(i).getInformTimeDifference()+"分钟前");
 
-            map.put(InformConstName.inform_data_imageID,R.drawable.simple_01);
-            Log.d(InformConstName.inform_data_imageID,R.drawable.simple_01+"");
+            map.put(InformConstName.inform_data_imageID,informList.get(i).getInformImageID());
+            Log.d(InformConstName.inform_data_imageID,informList.get(i).getInformImageID()+"");
 
             List.add(map);
         }
@@ -98,23 +97,53 @@ public class InformPresenter implements  InformContract.Presenter{
     }
 
     // handle th click  event
-    private void clickItem(){
-        informDetail=InformFragmentView.getInformDetail();
+    private void clickItem() {
+        informDetail = InformFragmentView.getInformDetail();
         informDetail.setPresenter(this);
         InformFragmentView.getInformListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();
-                bundle.putInt(InformConstName.inform_detail_image,R.drawable.simple_01);
+                bundle.putInt(InformConstName.inform_detail_image, informList.get(position).getInformImageID());
                 bundle.putString(InformConstName.inform_detail_userName, informList.get(position).getUserName());
                 bundle.putString(InformConstName.inform_detail_message, informList.get(position).getInformMessage());
-                bundle.putInt(InformConstName.inform_detail_timeDifference, informList.get(position).getInformTimeDifference());
-                Intent intent=new Intent(InformFragmentView.getInformContext(),InformDetail.class);
-                intent.putExtra(InformConstName.inform_detail_bundle_name,bundle);
+                bundle.putString(InformConstName.inform_detail_timeDifference, informList.get(position).getInformDetailTime());
+
+                Intent intent = new Intent(InformFragmentView.getInformContext(), InformDetail.class);
+                intent.putExtra(InformConstName.inform_detail_bundle_name, bundle);
                 InformFragmentView.getInformContext().startActivity(intent);
             }
         });
+/*        InformFragmentView.getInformListView().setOnTouchListener(new AdapterView.OnTouchListener() {
+            int startX=0;
+            int endX=0;
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_MOVE) {
+                    Log.d("触发","触摸");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        startX = (int) event.getX();
+                        Log.d("startX", " " + startX);
+                        return true;
+                    } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                        endX = (int) event.getX();
+                        Log.d("endX", endX + " ");
+                        if (startX - endX > 200) {
+                            Log.d("触发", "左滑");
+                            return false;
+                        } else {
+                            Log.d("触发", "右滑");
+                            return true;
+                        }
+                    }
+                }
+                return true;
+            }
+        });*/
     }
+
+
+
 }
 
 
