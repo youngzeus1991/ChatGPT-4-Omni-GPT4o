@@ -366,6 +366,22 @@ public class FakeDataProvider {
        sampleInformModel.setInformImageID(R.drawable.simple_03);
        SampleInformList.add(sampleInformModel);
 
-        return SampleInformList;
+       sampleInformModel=new InformModel("杭澍","预约了你的需求");
+       sampleInformModel.setInformImageID(R.drawable.simple_02);
+       SampleInformList.add(sampleInformModel);
+
+       sampleInformModel=new InformModel("小明","发布了新的动态");
+       sampleInformModel.setInformImageID(R.drawable.simple_03);
+       SampleInformList.add(sampleInformModel);
+
+       sampleInformModel=new InformModel("小刚","预约了你的需求");
+       sampleInformModel.setInformImageID(R.drawable.simple_02);
+       SampleInformList.add(sampleInformModel);
+
+       sampleInformModel=new InformModel("小贤","发布了新的动态");
+       sampleInformModel.setInformImageID(R.drawable.simple_03);
+       SampleInformList.add(sampleInformModel);
+
+       return SampleInformList;
     }
 }
