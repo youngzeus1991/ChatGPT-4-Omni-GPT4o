@@ -4,16 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <com.scut.itpm.umo.core.Main.Nav.NavBarView
+    <com.scut.itpm.umo.core.Main.NavBar.NavBarView
         android:id="@+id/id_main_nav_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nav_bar_hight">
-    </com.scut.itpm.umo.core.Main.Nav.NavBarView>
+        android:layout_height="@dimen/nav_bar_height"></com.scut.itpm.umo.core.Main.NavBar.NavBarView>
 
-    <com.scut.itpm.umo.core.Main.MainView
-        android:id="@+id/activity_main"
+    <com.scut.itpm.umo.core.Main.Main.MainView
+        android:id="@+id/id_main_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.scut.itpm.umo.core.Main.MainView>
+        android:layout_height="match_parent"></com.scut.itpm.umo.core.Main.Main.MainView>
 
 </LinearLayout>

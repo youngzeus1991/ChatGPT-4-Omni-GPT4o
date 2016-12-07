@@ -2,21 +2,44 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.scut.itpm.umo">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".core.Main.MainActivity">
+        <activity android:name=".core.signinActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
 
+
+
+        <activity
+            android:name=".core.inform.InformDetail">
+        </activity>
+
+        <activity
+            android:name=".chat.ChatActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".core.signupActivity" />
+        <activity android:name=".core.Main.MainActivity" />
+        <activity android:name=".core.announce.sociaty.Feeling.FeelingDetail.FeelingDetailActivity"></activity>
+        <activity android:name=".core.announce.sociaty.Requirement.RequirementDetail.RequirementDetailActivity"></activity>
+
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

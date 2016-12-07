@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/myImage"
+        android:layout_width="70dip"
+        android:layout_height="70dip"
+        android:layout_marginTop="65dip"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/circle"
+        android:src="@drawable/photo" />
+
+    <EditText
+        android:id="@+id/qqNum"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="30dip"
+        android:layout_marginTop="15dip"
+        android:paddingLeft="50dip"
+        android:layout_below="@id/myImage"
+        android:inputType="number"
+        android:background="@drawable/circle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账号"
+        android:textSize="8pt"
+        android:textColor="@android:color/darker_gray"
+        android:layout_alignLeft="@id/qqNum"
+        android:layout_alignTop="@id/qqNum"
+        android:layout_marginTop="9dip"
+        android:layout_marginLeft="3dip"/>
+
+    <ImageButton
+        android:id="@+id/delete_button_edit"
+        android:layout_width="18dip"
+        android:layout_height="18dip"
+        android:layout_marginBottom="8dip"
+        android:layout_marginRight="3dip"
+        android:layout_alignBottom="@+id/qqNum"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/qqPassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:inputType="textPassword"
+        android:paddingLeft="50dip"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="30dip"
+        android:layout_below="@id/qqNum"
+        android:background="@drawable/circle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码"
+        android:textSize="8pt"
+        android:textColor="@android:color/darker_gray"
+        android:layout_alignLeft="@id/qqPassword"
+        android:layout_alignTop="@id/qqPassword"
+        android:layout_marginTop="9dip"
+        android:layout_marginLeft="3dip"
+        android:id="@+id/textView2" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:id="@+id/btn_signin"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/signin"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignRight="@+id/qqPassword"
+        android:layout_alignEnd="@+id/qqPassword"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="没有账号？"
+        android:id="@+id/textView15"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btn_signin"
+        android:layout_alignStart="@+id/btn_signin"
+        android:layout_marginLeft="75dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="现在注册"
+        android:id="@+id/btn_signup"
+        android:background="#ffffff"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_toRightOf="@+id/textView15"
+        android:layout_toEndOf="@+id/textView15" />
+
+
+
+</RelativeLayout>

@@ -5,9 +5,21 @@
     <color name="colorAccent">#FF4081</color>
     <color name="color_tab_select">#02b7ff</color>
     <color name="color_nav_bar_background">#34ccff</color>
-    <color name="color_nav_bar_title">#ffffff</color>
+
+
     <color name="color_info_detail_background">#ebebeb</color>
     <color name="color_white_background">#fff</color>
     <color name="color_text_remark">#3eda2c</color>
+
+
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="color_nav_bar_title_background">#ffffff</color>
+    <color name="color_nav_bar_title">#000000</color>
+    <color name="color_nav_bar_title_block_line">#cccccc</color>
+    <color name="color_divide">#9E9E9E</color>
+
+
 
 </resources>

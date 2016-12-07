@@ -7,41 +7,47 @@
 
 
 
+
     <RadioGroup
-        android:id="@+id/id_main_radiogroup_tab_bar"
+        android:id="@+id/id_main_radio_group_tab_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tab_bar_hight"
+        android:layout_height="@dimen/tab_bar_height"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:divider="@drawable/block_line"
-        android:showDividers="middle">
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+        <!--        android:divider="@drawable/block_line"
+                android:showDividers="middle"-->
 
         <RadioButton
             android:id="@+id/id_main_radio_message"
             style="@style/radio_button_same_attr"
+            android:drawableTop="@drawable/main_tab_bar_message"
             android:text="@string/message"
-
-          />
-
+            />
 
         <RadioButton
             android:id="@+id/id_main_radio_contract"
             style="@style/radio_button_same_attr"
+            android:drawableTop="@drawable/main_tab_bar_contacts"
             android:text="@string/contact"/>
 
         <RadioButton
             android:id="@+id/id_main_radio_announce"
             style="@style/radio_button_same_attr"
+            android:drawableTop="@drawable/main_tab_bar_announce"
             android:text="@string/announce" />
 
         <RadioButton
             android:id="@+id/id_main_radio_follow"
             style="@style/radio_button_same_attr"
-            android:text="@string/follow" />
+            android:drawableTop="@drawable/main_tab_bar_follow"/>
 
         <RadioButton
             android:id="@+id/id_main_radio_inform"
             style="@style/radio_button_same_attr"
+
+            android:drawableTop="@drawable/main_tab_bar_inform"
+
             android:text="@string/inform" />
 
 
@@ -51,13 +57,18 @@
         android:id="@+id/id_main_view_line"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_above="@id/id_main_radiogroup_tab_bar"
+
+        android:layout_above="@id/id_main_radio_group_tab_bar"
+        android:layout_marginBottom="10dp"
         android:background="@android:color/black" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/id_main_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
         android:layout_above="@id/id_main_view_line">
     </android.support.v4.view.ViewPager>
 
