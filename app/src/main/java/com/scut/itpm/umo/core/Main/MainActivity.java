@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.scut.itpm.umo.BaseActivity;
 import com.scut.itpm.umo.R;
 import com.scut.itpm.umo.core.Main.Main.MainContract;
@@ -54,6 +55,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         mainView = (MainView) findViewById(R.id.id_main_main);
