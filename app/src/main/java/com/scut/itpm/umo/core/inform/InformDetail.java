@@ -1,17 +1,14 @@
 package com.scut.itpm.umo.core.inform;
 
 import android.app.Activity;
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.scut.itpm.umo.R;
 import com.scut.itpm.umo.core.Main.NavBar.NavBarView;
-import com.scut.itpm.umo.core.announce.sociaty.DetailNavBarCallback;
+import com.scut.itpm.umo.core.announce.sociaty.NavBarCallback;
 
 public class InformDetail extends Activity {
     private InformPresenter informPresenter;
@@ -28,7 +25,7 @@ public class InformDetail extends Activity {
 
     private void initNav() {
         NavBarView navview= (NavBarView) findViewById(R.id.id_inform_detai_nav);
-        navview.setDetailAction(new DetailNavBarCallback() {
+        navview.setDetailAction(new NavBarCallback() {
             @Override
             public void onClick(View v) {
                 finish();

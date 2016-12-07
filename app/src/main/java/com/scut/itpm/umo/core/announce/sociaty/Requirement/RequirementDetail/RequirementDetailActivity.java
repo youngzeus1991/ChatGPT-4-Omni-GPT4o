@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.scut.itpm.umo.R;
 import com.scut.itpm.umo.core.Main.NavBar.NavBarView;
-import com.scut.itpm.umo.core.announce.sociaty.DetailNavBarCallback;
+import com.scut.itpm.umo.core.announce.sociaty.NavBarCallback;
 import com.scut.itpm.umo.core.announce.sociaty.PhotoListAdapter;
 import com.scut.itpm.umo.data.announce.RequirementModel;
 
@@ -42,7 +42,7 @@ public class RequirementDetailActivity extends Activity{
     private void initNavBar() {
         navBarView= (NavBarView) findViewById(R.id.id_requirement_detail_nav_bar);
 
-        navBarView.setDetailAction(new DetailNavBarCallback() {
+        navBarView.setDetailAction(new NavBarCallback() {
             @Override
             public void onClick(View view) {
                 finish();

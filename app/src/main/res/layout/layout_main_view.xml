@@ -15,7 +15,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"
         android:orientation="horizontal">
-        <!--        android:divider="@drawable/block_line"
+        <!--        android:divider="@drawable/block_line_horizent"
                 android:showDividers="middle"-->
 
         <RadioButton
@@ -40,6 +40,7 @@
         <RadioButton
             android:id="@+id/id_main_radio_follow"
             style="@style/radio_button_same_attr"
+            android:text="@string/follow"
             android:drawableTop="@drawable/main_tab_bar_follow"/>
 
         <RadioButton
@@ -62,7 +63,7 @@
         android:layout_marginBottom="10dp"
         android:background="@android:color/black" />
 
-    <android.support.v4.view.ViewPager
+    <com.scut.itpm.umo.core.Main.Main.MyViewPager
         android:id="@+id/id_main_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -70,6 +71,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_above="@id/id_main_view_line">
-    </android.support.v4.view.ViewPager>
+    </com.scut.itpm.umo.core.Main.Main.MyViewPager>
 
 </RelativeLayout>

@@ -21,6 +21,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="user_info">[sign]</string>
->>>>>>> refs/remotes/origin/master
-
+    <string-array name="requirement_valid_time">
+        <item>5分钟</item>
+        <item>10分钟</item>
+    </string-array>
 </resources>

@@ -13,6 +13,8 @@ import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.scut.itpm.umo.R;
+import com.scut.itpm.umo.core.Main.NavBar.NavBarView;
+import com.scut.itpm.umo.core.announce.sociaty.NavBarCallback;
 import com.scut.itpm.umo.data.contact.ContactChildModel;
 import com.scut.itpm.umo.data.contact.ContactGroupModel;
 
@@ -66,8 +68,14 @@ public class ContactFragment extends Fragment implements ContactContract.View{
 
     private void showPopup(ContactChildModel childModel) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_userinfo_detail,null);
-        final Button backBtn = (Button) view.findViewById(R.id.back_button);
-
+//        final Button backBtn = (Button) view.findViewById(R.id.back_button);
+        NavBarView navBarView= (NavBarView) view.findViewById(R.id.id_user_info_nav_bar);
+        navBarView.setDetailAction(new NavBarCallback() {
+            @Override
+            public void onClick(View view) {
+                popupwindow.dismiss();
+            }
+        });
         popupwindow = new PopupWindow(getContext());//初始化popupWindow对象
         popupwindow.setContentView(view);//设置布局文件
         popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);//设置宽度
@@ -75,12 +83,12 @@ public class ContactFragment extends Fragment implements ContactContract.View{
         rootView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_contact,null);//父布局
         popupwindow.showAsDropDown(rootView);
         popupwindow.setTouchable(true);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popupwindow.dismiss();
-            }
-        });
+//        backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                popupwindow.dismiss();
+//            }
+//        });
 
         Toast.makeText(getContext(),"我点了，"+childModel.getNickName()+"终于有反应了",Toast.LENGTH_SHORT).show();
     }

@@ -6,33 +6,37 @@
     android:orientation="vertical"
     android:background="@color/color_info_detail_background">
 
-    <RelativeLayout
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:background="@color/color_white_background">-->
+
+        <!--<Button-->
+            <!--android:id="@+id/back_button"-->
+            <!--android:background="@drawable/back_button"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:clickable="true" />-->
+
+        <!--<TextView-->
+            <!--android:text="@string/detail_information"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_marginLeft="80dp"-->
+            <!--android:gravity="center_vertical"-->
+
+            <!--android:textSize="24sp"-->
+            <!--android:paddingLeft="60dp"-->
+            <!--android:paddingRight="20dp"-->
+            <!--tools:ignore="RtlSymmetry" />-->
+    <!--</RelativeLayout>-->
+    <com.scut.itpm.umo.core.Main.NavBar.NavBarView
+        android:id="@+id/id_user_info_nav_bar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:paddingTop="10dp"
-        android:layout_marginBottom="5dp"
-        android:background="@color/color_white_background">
-
-        <Button
-            android:id="@+id/back_button"
-            android:background="@drawable/back_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:clickable="true" />
-
-        <TextView
-            android:text="@string/detail_information"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="80dp"
-            android:gravity="center_vertical"
-
-            android:textSize="24sp"
-            android:paddingLeft="60dp"
-            android:paddingRight="20dp"
-            tools:ignore="RtlSymmetry" />
-    </RelativeLayout>
+        android:layout_height="@dimen/nav_bar_height"></com.scut.itpm.umo.core.Main.NavBar.NavBarView>
 
     <RelativeLayout
         android:layout_width="match_parent"

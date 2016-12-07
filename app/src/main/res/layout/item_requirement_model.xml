@@ -23,6 +23,7 @@
             android:layout_toRightOf="@id/id_requirement_requirementer_photo"
             android:text="userName" />
 
+
         <TextView
             android:id="@+id/id_requirement_location"
             android:layout_width="wrap_content"

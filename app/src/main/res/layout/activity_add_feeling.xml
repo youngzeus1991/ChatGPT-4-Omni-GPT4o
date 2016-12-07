@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.scut.itpm.umo.core.Main.NavBar.NavBarView
+        android:id="@+id/id_add_feeling_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_bar_height">
+
+    </com.scut.itpm.umo.core.Main.NavBar.NavBarView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_add_back_ground"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/id_add_feeling_content_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="8"
+            android:background="@drawable/shape_add_frame"
+            android:hint="说点什么吧" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1">
+
+            <CheckBox
+                android:id="@+id/id_add_feeling_location_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/shape_add_frame"
+                android:text="附加你的位置" />
+
+            <Spinner
+                android:id="@+id/id_add_feeling_valid_time_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:background="@color/color_write"
+                android:entries="@array/requirement_valid_time" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/id_add_feeling_upload_image_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="3"
+            android:background="@drawable/shape_add_frame"
+            android:gravity="center"
+            android:text="上传图片" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="3"
+            android:background="@drawable/shape_add_frame"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/id_add_feeling_sync_linkin"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@drawable/add_sync_linkin" />
+
+            <ImageView
+                android:id="@+id/id_add_feeling_sync_buzhiming"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@drawable/add_sync_buzhiming" />
+
+            <ImageView
+                android:id="@+id/id_add_feeling_twitter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@drawable/add_sync_twitter" />
+
+            <ImageView
+                android:id="@+id/id_add_feeling_facebook"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@drawable/add_sync_facebook" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"></LinearLayout>
+
+        <Button
+            android:id="@+id/id_add_feeling_post_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="3"
+            android:text="发布"
+            android:gravity="center"
+            android:background="@drawable/shape_add_frame" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,27 +1,21 @@
 package com.scut.itpm.umo.data;
 
 
-import android.util.Log;
-
 import com.scut.itpm.umo.R;
-import com.scut.itpm.umo.core.inform.InformConstName;
-//import com.scut.itpm.umo.data.announce.AnnounceModel;
-import com.scut.itpm.umo.data.inform.InformModel;
-
 import com.scut.itpm.umo.data.announce.FeelingModel;
 import com.scut.itpm.umo.data.announce.RequirementModel;
 import com.scut.itpm.umo.data.chat.ChatMessageModel;
-
+import com.scut.itpm.umo.data.follow.FollowModel;
+import com.scut.itpm.umo.data.inform.InformModel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
-
 import java.util.Date;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+//import com.scut.itpm.umo.data.announce.AnnounceModel;
 
 /**
  * Created by DELL on 2016/11/30.
@@ -383,5 +377,67 @@ public class FakeDataProvider {
        SampleInformList.add(sampleInformModel);
 
        return SampleInformList;
+    }
+    public static List<FollowModel> getFollowList(){
+        List<FollowModel> followModelList=new ArrayList<>();
+
+        RequirementModel fake1 = new RequirementModel();
+        fake1.setRequirementerName("李杭澍");
+        fake1.setRequirementerPhotoID(R.drawable.fake_data_announce_1);
+        fake1.setRequirementID(1);
+        fake1.setRequirementContent("我最近好寂寞啊，希望有个帅哥来炸窝聊天啊~~啊啊啊啊啊啊啊啊啊啊~啊啊");
+        fake1.setCommentCount(25);
+        fake1.setBookCount(52);
+        Date currDate1 = new Date(System.currentTimeMillis() - 1111);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:SS");
+        fake1.setRequirementMoment(formatter.format(currDate1));
+        fake1.setViewCount(145);
+        fake1.setRequirementLocation("华南理工大学");
+        List imageList=new ArrayList();
+        imageList.add(R.drawable.action_comment);
+        imageList.add(R.drawable.action_commend);
+        imageList.add(R.drawable.action_view);
+        imageList.add(R.drawable.fake_data_announce_2);
+        imageList.add(R.drawable.fake_data_announce_3);
+        imageList.add(R.drawable.fake_data_announce_4);
+        imageList.add(R.drawable.main_tab_bar_contacts);
+        imageList.add(R.drawable.main_tab_bar_announce);
+        imageList.add(R.drawable.main_tab_bar_follow);
+        imageList.add(R.drawable.main_tab_bar_inform);
+        fake1.setRequirementImageList(imageList);
+
+        RequirementModel fake4 = new RequirementModel();
+        fake4.setRequirementerName("张志斌");
+        fake4.setRequirementerPhotoID(R.drawable.fake_data_announce_4);
+        fake4.setRequirementID(1);
+        fake4.setRequirementContent("峡谷见，左小龙，有大龙，上先锋，下蓝爸~");
+        fake4.setCommentCount(86);
+        fake4.setBookCount(143);
+        Date currDate4 = new Date(System.currentTimeMillis() - 4444);
+        fake4.setRequirementMoment(formatter.format(currDate4));
+        fake4.setViewCount(1240);
+        fake4.setRequirementLocation("华南理工大学-召唤师峡谷");
+        fake4.setRequirementImageList(imageList);
+
+        FeelingModel fake3 = new FeelingModel();
+        fake3.setFeelingerName("张小贤");
+        fake3.setFeelingerPhotoID(R.drawable.fake_data_announce_3);
+        fake3.setFeelingID(3);
+        fake3.setFeelingContent("二饭篮球场来个基友一起战斗~");
+        fake3.setCommentCount(35);
+        fake3.setCommendCount(67);
+        Date currDate3 = new Date(System.currentTimeMillis() - 333333);
+        fake3.setFeelingMoment(formatter.format(currDate3));
+        fake3.setViewCount(1240);
+        fake3.setFeelingLocation("华南理工大学-二饭篮球场");
+        fake3.setFeelingImageList(imageList);
+
+
+        followModelList.add(fake1);
+        followModelList.add(fake3);
+        followModelList.add(fake4);
+
+        return followModelList;
+
     }
 }

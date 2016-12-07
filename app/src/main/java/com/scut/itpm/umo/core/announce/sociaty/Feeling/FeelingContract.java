@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 public interface FeelingContract {
-    interface View  extends BaseView, android.view.View.OnClickListener {
+    interface View  extends BaseView, android.view.View.OnClickListener,AdapterView.OnItemClickListener {
         void showFeelingList(List<FeelingModel> feelingList);
 
         void showFeelingDetail(FeelingModel feeling);
@@ -24,7 +24,8 @@ public interface FeelingContract {
 
     interface Presenter extends BasePresenter {
         void fetchFeelingList();
-
         void fetchFeelingDetail(int ID);
+        void handleCommend();
+        void handleComment();
     }
 }

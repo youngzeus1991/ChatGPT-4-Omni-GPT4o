@@ -42,7 +42,7 @@
         android:layout_height="@dimen/widget_size_in_nav_bar"
         android:gravity="center"
         android:layout_centerInParent="true"
-        android:background="@color/color_nav_bar_title_background"
+        android:background="@color/color_write"
         android:text="标题" />
     <LinearLayout
         android:id="@+id/id_nav_bar_announce_title"
@@ -51,7 +51,7 @@
         android:layout_height="@dimen/widget_size_in_nav_bar"
         android:layout_centerInParent="true"
         android:background="@drawable/shape_nav_bar_title"
-        android:divider="@drawable/block_line"
+        android:divider="@drawable/block_line_horizent"
         android:showDividers="middle">
         <TextView
             android:id="@+id/id_nav_bar_map"

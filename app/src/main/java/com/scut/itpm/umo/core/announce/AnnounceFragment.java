@@ -81,9 +81,14 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        announcePresenter.start();
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
-
     }
 
     @Override
@@ -92,11 +97,6 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
         fragmentManager.putFragment(outState,"map",mapFragment);
         fragmentManager.putFragment(outState,"requirement",requirementFragment);
         fragmentManager.putFragment(outState,"feeling",feelingFragment);
-
-//        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-//        fragmentTransaction.remove(mapFragment)
-//                .remove(requirementFragment)
-//                .remove(feelingFragment).commit();
         super.onSaveInstanceState(outState);
     }
 
@@ -104,7 +104,6 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
     public void onResume() {
         Log.e("AnnounceFragment:", "onResume");
         super.onResume();
-        announcePresenter.start();
     }
 
     @Override
@@ -116,6 +115,7 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
 
     @Override
     public void setDefaultFragment() {
+        //第一次加载，初始化3个Fragment，展示地图
         if(isFirstLoad==true) {
             FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
             fragmentTransaction.add(R.id.id_announce_LL, mapFragment, "map")
@@ -123,11 +123,15 @@ public class AnnounceFragment extends Fragment implements AnnounceContract.View 
                     .add(R.id.id_announce_LL, feelingFragment, "feeling")
                     .commit();
             isFirstLoad=false;
+            showMapFragment();
         }
-        showMapFragment();
+        //非首次加载时，把回退栈里的顶部项取出，还原状态
+        else{
+            getChildFragmentManager().getBackStackEntryAt(getChildFragmentManager().getBackStackEntryCount()-1);
+        }
     }
 
-
+//TODO 这里Fragment的事务性逻辑需要优化
     @Override
     public void showMapFragment() {
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();

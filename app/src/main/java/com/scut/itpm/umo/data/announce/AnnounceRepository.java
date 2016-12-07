@@ -18,7 +18,7 @@ public class AnnounceRepository implements AnnounceDataSource {
             return INSTANCE;
         }
         else {
-            return new AnnounceRepository(announceLocalDataSource, announceRemoteDataSource);
+            return INSTANCE=new AnnounceRepository(announceLocalDataSource, announceRemoteDataSource);
         }
     }
 

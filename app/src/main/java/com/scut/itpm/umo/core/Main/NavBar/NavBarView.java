@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.scut.itpm.umo.R;
-import com.scut.itpm.umo.core.announce.sociaty.DetailNavBarCallback;
+import com.scut.itpm.umo.core.announce.sociaty.NavBarCallback;
 
 /**
  * Created by DELL on 2016/11/2.
@@ -69,7 +69,7 @@ public class NavBarView extends RelativeLayout implements NavBarContract.View {
         sociatyTitle.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                View choiceSwitchView= LayoutInflater.from(getContext()).inflate(R.layout.layout_popup_switch,null);
+                View choiceSwitchView= LayoutInflater.from(getContext()).inflate(R.layout.layout_popup_community_switch,null);
                 final PopupWindow popupWindow=new PopupWindow(choiceSwitchView,200,200);
                 feelingTitle= (TextView) choiceSwitchView.findViewById(R.id.id_switch_feeling);
                 requirementTitle= (TextView) choiceSwitchView.findViewById(R.id.id_switch_requirement);
@@ -115,9 +115,8 @@ public class NavBarView extends RelativeLayout implements NavBarContract.View {
     }
 
     @Override
-    public void setDetailAction(final DetailNavBarCallback callback) {
-        searchBtn.setVisibility(INVISIBLE);
-        settingBtn.setVisibility(INVISIBLE);
+    public void setDetailAction(final NavBarCallback callback) {
+        dismissHomeNavItem();
         backTitle.setText("返回");
         title.setText("详情");
         backBtn.setVisibility(VISIBLE);
@@ -134,8 +133,31 @@ public class NavBarView extends RelativeLayout implements NavBarContract.View {
                 callback.onClick(view);
             }
         });
+    }
+    //隐藏主界面导航条控件
+    public void dismissHomeNavItem(){
+        searchBtn.setVisibility(INVISIBLE);
+        settingBtn.setVisibility(INVISIBLE);
 
-
-
+    }
+    @Override
+    public void setAddAction(final NavBarCallback callback) {
+        dismissHomeNavItem();
+        backTitle.setText("返回");
+        title.setText("发布");
+        backBtn.setVisibility(VISIBLE);
+        backTitle.setVisibility(VISIBLE);
+        backTitle.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callback.onClick(view);
+            }
+        });
+        backBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callback.onClick(view);
+            }
+        });
     }
 }

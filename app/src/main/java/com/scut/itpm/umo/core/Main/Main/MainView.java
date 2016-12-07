@@ -1,7 +1,6 @@
 package com.scut.itpm.umo.core.Main.Main;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -26,7 +25,7 @@ public class MainView extends FrameLayout implements MainContract.View {
 
     private MainContract.Presenter mainViewPresenter;
 
-    private ViewPager viewPager;
+    private MyViewPager viewPager;
     private RadioGroup radioGroup;
 
     private RadioButton messageTab;
@@ -38,7 +37,7 @@ public class MainView extends FrameLayout implements MainContract.View {
     private void initView(Context context) {
         View view = inflate(context, R.layout.layout_main_view, this);
 
-        viewPager = (ViewPager) view.findViewById(R.id.id_main_view_pager);
+        viewPager = (MyViewPager) view.findViewById(R.id.id_main_view_pager);
 
         radioGroup = (RadioGroup) view.findViewById(R.id.id_main_radio_group_tab_bar);
 
@@ -103,18 +102,23 @@ public class MainView extends FrameLayout implements MainContract.View {
             switch (viewPager.getCurrentItem()) {
                 case PAGE_MESSAGE:
                     messageTab.setChecked(true);
+                    viewPager.setScrollable(true);
                     break;
                 case PAGE_CONTACT:
                     contactTab.setChecked(true);
+                    viewPager.setScrollable(true);
                     break;
                 case PAGE_ANNOUNCE:
                     announceTab.setChecked(true);
+                    viewPager.setScrollable(false);
                     break;
                 case PAGE_FOLLOW:
                     followTab.setChecked(true);
+                    viewPager.setScrollable(true);
                     break;
                 case PAGE_INFORM:
                     informTab.setChecked(true);
+                    viewPager.setScrollable(true);
                     break;
             }
         }
@@ -143,6 +147,7 @@ public class MainView extends FrameLayout implements MainContract.View {
         //初始化
         viewPager.setCurrentItem(PAGE_ANNOUNCE);
         announceTab.setChecked(true);
+        viewPager.setScrollable(false);
 
     }
 }
