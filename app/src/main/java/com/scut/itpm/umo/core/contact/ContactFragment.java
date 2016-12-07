@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ public class ContactFragment extends Fragment implements ContactContract.View{
     private ContactContract.Presenter contactPresenter;
     private List<ContactGroupModel> contactGroupModelList;
 
+    private View rootView;
     private PopupWindow popupwindow;
 
     public static ContactFragment newInstance(){
@@ -51,7 +53,8 @@ public class ContactFragment extends Fragment implements ContactContract.View{
                                         View view, int groupPosition, int childPosition, long childId) {
                 ContactChildModel childModel = (ContactChildModel) contactAdapter.getChild(groupPosition,childPosition);
 
-                showPopup();
+               // startActivity(intent);
+                showPopup(childModel);
                 Toast.makeText(getContext(),"hello ,"+childModel.getNickName(),Toast.LENGTH_SHORT).show();
 
                 return true;
@@ -61,13 +64,25 @@ public class ContactFragment extends Fragment implements ContactContract.View{
         return view;
     }
 
-    private void showPopup() {
+    private void showPopup(ContactChildModel childModel) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_userinfo_detail,null);
+        final Button backBtn = (Button) view.findViewById(R.id.back_button);
+
         popupwindow = new PopupWindow(getContext());//初始化popupWindow对象
         popupwindow.setContentView(view);//设置布局文件
         popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);//设置宽度
         popupwindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);//设置高度
-        Toast.makeText(getContext(),"我点了，可惜没反应",Toast.LENGTH_SHORT).show();
+        rootView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_contact,null);//父布局
+        popupwindow.showAsDropDown(rootView);
+        popupwindow.setTouchable(true);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupwindow.dismiss();
+            }
+        });
+
+        Toast.makeText(getContext(),"我点了，"+childModel.getNickName()+"终于有反应了",Toast.LENGTH_SHORT).show();
     }
 
     /**
